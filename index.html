@@ -6,7 +6,9 @@
 
 <style>
 
-/* ---------- GLOBAL THEME VARIABLES ---------- */
+/* ========================================= */
+/* GLOBAL THEME VARIABLES */
+/* ========================================= */
 :root {
     --bg-color: #0d0d0d;
     --text-color: #e6e6e6;
@@ -14,56 +16,96 @@
     --box-bg: #1a1a1a;
 }
 
-/* ---------- GLOBAL PAGE STYLE ---------- */
+/* ========================================= */
+/* GLOBAL PAGE STYLE */
+/* ========================================= */
 body {
     background: linear-gradient(135deg, #0d0d0d, #1f1f1f);
     color: var(--text-color);
     font-family: Arial, sans-serif;
     font-size: 19px;
     line-height: 1.6;
-    margin-left: 50px;
+    margin: 0;
     transition: 0.4s ease;
 }
 
-/* LIGHT MODE */
+/* Light Mode */
 body.light {
-    --bg-color: #ffffff;
-    --text-color: #111111;
-    --box-bg: #f2f2f2;
     background: #ffffff;
     color: #111111;
+    --box-bg: #f2f2f2;
 }
 
-/* ---------- HEADINGS ---------- */
+/* Headings */
 h1, h2, h3 {
     color: var(--accent);
 }
-
 h1 {
     font-size: 34px;
     animation: glow 1.8s ease-in-out infinite alternate;
 }
-
 @keyframes glow {
     from { text-shadow: 0 0 7px var(--accent); }
     to   { text-shadow: 0 0 22px var(--accent); }
 }
 
-/* ---------- TABLE ---------- */
-p.ex1 { margin-left: 250px; max-width: 850px; }
+/* ========================================= */
+/* PROFESSIONAL TWO-COLUMN LAYOUT */
+/* ========================================= */
+#content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    width: 100%;
+    max-width: 1650px;
+    margin: auto;
+    padding-top: 40px;
+}
 
+#article-column {
+    flex: 3;
+    max-width: 950px;
+}
+
+#diagram-column {
+    flex: 2;
+    max-width: 480px;
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+}
+
+p.ex1 {
+    margin: 0;
+    max-width: 900px;
+}
+
+/* Responsive collapse to one column */
+@media (max-width: 1050px) {
+    #content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    #diagram-column {
+        position: static;
+        max-width: 100%;
+    }
+}
+
+/* ========================================= */
+/* TABLE OF CONTENTS */
+/* ========================================= */
 table {
     border-collapse: collapse;
     background: var(--box-bg);
     color: var(--text-color);
-    width: 35%;
+    width: 45%;
 }
-
 td, th {
     border: 1px solid #333;
     padding: 10px;
 }
-
 a {
     color: var(--accent);
     text-decoration: none;
@@ -73,7 +115,9 @@ a:hover {
     text-shadow: 0 0 10px var(--accent);
 }
 
-/* ---------- SIDEBAR ---------- */
+/* ========================================= */
+/* SIDEBAR */
+/* ========================================= */
 #sidebar {
     height: 100%;
     width: 0;
@@ -83,7 +127,7 @@ a:hover {
     overflow-x: hidden;
     transition: 0.4s;
     padding-top: 60px;
-    z-index: 2000;
+    z-index: 3000;
 }
 #sidebar a {
     padding: 12px 25px;
@@ -96,7 +140,6 @@ a:hover {
     color: #000;
 }
 
-/* MENU BUTTON */
 #openBtn {
     position: fixed;
     top: 20px;
@@ -104,15 +147,17 @@ a:hover {
     font-size: 30px;
     cursor: pointer;
     color: var(--accent);
-    z-index: 3000;
+    z-index: 4000;
 }
 
-/* ---------- DARK / LIGHT MODE TOGGLE ---------- */
+/* ========================================= */
+/* DARK/LIGHT MODE TOGGLE */
+/* ========================================= */
 .toggle-container {
     position: fixed;
     top: 20px;
     right: 40px;
-    z-index: 3000;
+    z-index: 4000;
 }
 .toggle-container button {
     background: var(--box-bg);
@@ -128,7 +173,7 @@ a:hover {
     color: #000;
 }
 
-/* SMOOTH SCROLL */
+/* Smooth scroll */
 html { scroll-behavior: smooth; }
 
 </style>
@@ -136,7 +181,9 @@ html { scroll-behavior: smooth; }
 
 <body>
 
-<!-- SIDEBAR -->
+<!-- ========================================= -->
+<!-- SIDEBAR NAVIGATION -->
+<!-- ========================================= -->
 <div id="sidebar">
     <a href="javascript:void(0)" onclick="closeSidebar()">✖ Close</a>
     <a href="#Abstract">Abstract</a>
@@ -145,15 +192,16 @@ html { scroll-behavior: smooth; }
     <a href="#References">References</a>
 </div>
 
-<!-- OPEN SIDEBAR BUTTON -->
 <span id="openBtn" onclick="openSidebar()">☰ Menu</span>
 
-<!-- DARK MODE TOGGLE -->
+<!-- Light/Dark mode toggle -->
 <div class="toggle-container">
     <button onclick="toggleMode()">Toggle Light/Dark</button>
 </div>
 
+<!-- ========================================= -->
 <!-- CENTERED BANNER -->
+<!-- ========================================= -->
 <div style="text-align:center; width:100%; margin-top:60px;">
     <img src="WebBanner2023.png"
          style="border-radius:8px; box-shadow:0 0 20px #00eaff; max-width:850px; width:90%; height:auto;">
@@ -166,7 +214,9 @@ html { scroll-behavior: smooth; }
 <h2><b>The SOC Analyst’s Role in the Detection and Prevention of Cyber Attacks</b></h2>
 <hr>
 
+<!-- ========================================= -->
 <!-- TABLE OF CONTENTS -->
+<!-- ========================================= -->
 <p class="ex1">
 <table>
 <tr><th><h3>Table of contents</h3></th></tr>
@@ -177,9 +227,15 @@ html { scroll-behavior: smooth; }
 </table>
 </p>
 
-<hr>
+<!-- ========================================= -->
+<!-- BEGIN TWO COLUMN LAYOUT -->
+<!-- ========================================= -->
+<div id="content-wrapper">
 
-<!-- ABSTRACT -->
+<!-- LEFT COLUMN -->
+<div id="article-column">
+
+<hr>
 <h3 id="Abstract">Abstract</h3>
 <p class="ex1">
 The increasing sophistication of cyber-attacks has positioned Security Operations Centres (SOCs) as 
@@ -195,8 +251,6 @@ and coordinate strategic responses.
 </p>
 
 <hr>
-
-<!-- INTRODUCTION -->
 <h3 id="Introduction">Introduction</h3>
 <p class="ex1">
 As digital infrastructure expands, cybersecurity has become a major organisational concern. Security 
@@ -214,8 +268,6 @@ compromise.
 </p>
 
 <hr>
-
-<!-- ANALYSIS -->
 <h3 id="Analysis">Analysis and Discussion</h3>
 <p class="ex1">
 Security Operations Centres depend on a structured workflow consisting of people, tools, and defined 
@@ -250,9 +302,8 @@ judgement, intuition, and context.
 </p>
 
 <hr>
-
-<!-- REFERENCES -->
 <h3 id="References">References</h3>
+
 <p class="ex1">
 
 Agyepong, E. et al. (2023). A systematic method for measuring SOC analyst performance. <i>Computers & Security</i>.  
@@ -292,22 +343,52 @@ Yang, S. et al. (2021). Near real-time learning of attack models. <i>Journal of 
 
 </p>
 
+</div> <!-- close article-column -->
 
-<hr>
+<!-- ========================================= -->
+<!-- RIGHT COLUMN DIAGRAMS -->
+<!-- ========================================= -->
 
+<div id="diagram-column">
+
+    <div style="background:#111; padding:20px; border-radius:10px; margin-bottom:40px; box-shadow:0 0 12px #00eaff;">
+        <h3 style="color:#00eaff; text-align:center;">SOC Tier Structure</h3>
+        <img src="https://i.ibb.co/6BNW5GW/soc-tiers-diagram.png" style="width:100%; border-radius:8px;">
+    </div>
+
+    <div style="background:#111; padding:20px; border-radius:10px; margin-bottom:40px; box-shadow:0 0 12px #00eaff;">
+        <h3 style="color:#00eaff; text-align:center;">SOC Alert Flow</h3>
+        <img src="https://i.ibb.co/wYJf5x8/soc-alert-flow.png" style="width:100%; border-radius:8px;">
+    </div>
+
+    <div style="background:#111; padding:20px; border-radius:10px; margin-bottom:40px; box-shadow:0 0 12px #00eaff;">
+        <h3 style="color:#00eaff; text-align:center;">Threat Hunting Cycle</h3>
+        <img src="https://i.ibb.co/6yHqcVh/threat-hunting-cycle.png" style="width:100%; border-radius:8px;">
+    </div>
+
+    <div style="background:#111; padding:20px; border-radius:10px; margin-bottom:40px; box-shadow:0 0 12px #00eaff;">
+        <h3 style="color:#00eaff; text-align:center;">SOAR Automation Loop</h3>
+        <img src="https://i.ibb.co/B4Q3P2Y/soar-loop.png" style="width:100%; border-radius:8px;">
+    </div>
+
+</div>
+</div> <!-- close content-wrapper -->
+
+<!-- ========================================= -->
 <!-- LAST UPDATED + WORD COUNT -->
-<div id="last-updated">Loading last update time...</div>
-<p id="totalWordCount"></p>
+<!-- ========================================= -->
+<div id="last-updated" style="margin-left:20px; margin-top:30px;">Loading last update time...</div>
+<p id="totalWordCount" style="margin-left:20px;"></p>
 
+<!-- ========================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================= -->
 <script>
-/* Sidebar controls */
 function openSidebar() { document.getElementById("sidebar").style.width = "250px"; }
 function closeSidebar() { document.getElementById("sidebar").style.width = "0"; }
-
-/* Dark/Light mode toggle */
 function toggleMode() { document.body.classList.toggle("light"); }
 
-/* GitHub update time */
+/* GitHub API last update */
 async function getLastUpdatedTime() {
     const response = await fetch("https://api.github.com/repos/FEPSFY6870352/FY6870352/commits");
     const commits = await response.json();
@@ -316,17 +397,24 @@ async function getLastUpdatedTime() {
         "Last Modified Time: " + last.toLocaleString();
 }
 
-/* Word count */
-function countAllWords() {
-    const txt = document.body.innerText;
-    const words = txt.trim().split(/\s+/).length;
-    document.getElementById("totalWordCount").innerText =
-        "Total word count (entire page): " + words;
+/* Accurate word count */
+function countWordsFixed() {
+    setTimeout(() => {
+        const ids = ["Abstract", "Introduction", "Analysis", "References"];
+        let text = "";
+        ids.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) text += el.parentElement.innerText + " ";
+        });
+        const words = text.trim().split(/\s+/).filter(w => w.length > 0).length;
+        document.getElementById("totalWordCount").innerText =
+            "Total Word Count: " + words;
+    }, 500);
 }
 
-window.onload = function() {
+window.onload = function () {
     getLastUpdatedTime();
-    countAllWords();
+    countWordsFixed();
 };
 </script>
 
