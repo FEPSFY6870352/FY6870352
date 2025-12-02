@@ -1,257 +1,272 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <img src="WebBanner2023.png" alt="Banner" width="1200" height="300">
-    <h1><b>ENG0081 Computer Labratory 2025/26</b></h1>
-    <h2>Student URN: 6870352</h2>
-    <hr>
-    <h2 style=”fontfamily:calibri:”><b>Conference paper: Bridge Deck Repairs</b></h2>
-    <hr>
-<!style for tables>
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 30%;
-      
-    }
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    tr:nth-child(even) {
-      background-colour: #dddddd;
-    }
-  </style>
-  <style>
-    p.ex1 {
-    	margin-left: 250px;
-    }
-  </style>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<style>
-  .mySlides {display:none;}
-</style>
-  </head>
-	<body style="background-color:#FFFFFF;margin-left:50px;">
+<head>
+    <title>ENG0081 Computer Laboratory 2025/26</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Styles -->
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 30%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        p.ex1 {
+            margin-left: 250px;
+        }
+        .diagram {
+            margin-left: 250px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+</head>
+
+<body style="background-color:#FFFFFF;margin-left:50px;">
+
+<!-- Banner -->
+<img src="WebBanner2023.png" width="900" height="180" alt="Banner">
+
+<h1><b>ENG0081 Computer Laboratory 2025/26</b></h1>
+<h2>Student URN: 6870352</h2>
+<hr>
+
+<h2><b>The SOC Analyst’s Role in the Detection and Prevention of Cyber Attacks</b></h2>
+<hr>
+
+<!-- TABLE OF CONTENTS -->
 <p class="ex1">
 <table>
-<tr>
-<th><h3>Table of contents</h3></th>
-</tr>
-<tr>
-<td><a href="#Abstract">Abstract</a></td>
-</tr>
-<tr>
-<td><a href="#Introduction">Introduction</a></td>
-</tr>
-<tr>
-<td><a href="#Analysis and discussion">Analysis and discussion</a></td>
-</tr>
-<tr>
-<td><a href="#References">References</a></td>
-</tr>
+<tr><th><h3>Table of contents</h3></th></tr>
+<tr><td><a href="#Abstract">Abstract</a></td></tr>
+<tr><td><a href="#Introduction">Introduction</a></td></tr>
+<tr><td><a href="#Analysis">Analysis and discussion</a></td></tr>
+<tr><td><a href="#References">References</a></td></tr>
 </table>
 </p>
 
 <hr>
+
+<!-- ABSTRACT -->
 <h3 id="Abstract">Abstract</h3>
 <p class="ex1">
-<pre>
-This paper presents a comprehensive analysis of bridge deck repair methodologies 
-and their effectiveness in extending structural lifespan. The study examines 
-various repair techniques, cost implications, and durability factors affecting 
-bridge maintenance decisions. Through systematic evaluation of repair data and 
-performance metrics, this research provides insights into optimal maintenance 
-strategies for aging bridge infrastructure. The findings demonstrate significant 
-variations in repair effectiveness based on methodology, environmental conditions, 
-and initial structural condition.
-</pre>
+The rise of sophisticated cyber-attacks has increased reliance on Security Operations 
+Centres (SOCs) as the frontline of organisational defence. This paper examines the role of 
+SOC analysts in detecting and preventing cyber threats by combining automated systems 
+with human expertise. Drawing on recent studies, it highlights challenges such as alert 
+fatigue, false positives, increasing system complexity, and the expanding responsibilities 
+of human analysts. The research also evaluates how emerging technologies, including 
+machine learning and large language models, influence modern SOC operations. The study 
+concludes that effective cyber defence is achieved through the balance of automation, 
+situational awareness, experience, and collaborative problem-solving among analysts.
 </p>
 
 <hr>
+
+<!-- INTRODUCTION -->
 <h3 id="Introduction">Introduction</h3>
 <p class="ex1">
-<pre>
-Active Learning (Angluin, 1988, Cohn et al., 1994) is a paradigm where a concept is learnt by an 
-intelligent machine through the interaction of an oracle with the machine system, over a sequence of 
-learning epochs. A distinctive component in an active system is the querying strategy, used to sample 
-candidate training instances from a pool and evaluate them for informativeness, i.e., their potential 
-to improve the classification model. Various strategies have been proposed including; Query by 
-Committee (Seung et al., 1992), Monte Carlo estimation (Roy and McCallum, 2001), uncertainty 
-sampling (Lewis and Gale, 1994) and version space reduction (margin sampling) (Tong and Koller, 
-2001). Irrespective of how the most informative pattern instances are chosen at each epoch they are 
-presented for labeling, to a machine (database) or human oracle that has knowledge of the class 
-labels. After adding the newly labeled instances to the current training set, a revised model is 
-subsequently induced. A goal of this process is to achieve an efficient, incremental advancement of 
-learning at each epoch. The process is continued until some stopping criterion has been met, such as 
-reaching a stage where information from the selected instances is contrary to the model, causing the 
-classifier confidence to drop, as in Vlachos (2008).
-</pre>
+As organisations continue to expand their digital infrastructure, cybersecurity has emerged 
+as one of the defining challenges of the modern era. Security Operations Centres serve as 
+mission control for cyber defence, where analysts continuously monitor, detect, and 
+respond to threats in real time. According to Aslan et al. (2022):contentReference[oaicite:0]{index=0}, SOCs provide 
+critical defensive capabilities by correlating logs, identifying anomalies, and investigating 
+alerts generated from a variety of security tools. Analysts play a crucial role in interpreting 
+incomplete information, prioritising incidents, and ensuring operational resilience.
+
+Within a SOC, automation and human judgement work together. While tools such as 
+intrusion detection systems and SIEMs generate alerts, analysts must validate their 
+accuracy, determine the severity of incidents, and decide whether a real threat exists. 
+SOC effectiveness depends not only on technology but on disciplined procedures, 
+communication, and the analytical abilities of its personnel.
 </p>
 
+<!-- DIAGRAM 1: SOC ARCHITECTURE -->
+<div class="diagram">
+    <svg width="500" height="260">
+        <rect x="10" y="10" width="480" height="240" fill="#f2f2f2" stroke="#333"/>
+        <text x="140" y="35" font-size="18"><b>SOC Architecture Diagram</b></text>
+
+        <rect x="50" y="60" width="140" height="60" fill="#c7e8ff" stroke="#333"/>
+        <text x="75" y="95">Log Sources</text>
+
+        <rect x="200" y="60" width="140" height="60" fill="#ffe1c7" stroke="#333"/>
+        <text x="230" y="95">SIEM System</text>
+
+        <rect x="350" y="60" width="120" height="60" fill="#d1ffc7" stroke="#333"/>
+        <text x="375" y="95">Alert Output</text>
+
+        <rect x="150" y="150" width="200" height="70" fill="#ffd4e1" stroke="#333"/>
+        <text x="165" y="190">SOC Analyst Investigation</text>
+
+        <line x1="120" y1="120" x2="270" y2="150" stroke="black" />
+        <line x1="270" y1="120" x2="410" y2="150" stroke="black" />
+    </svg>
+</div>
+
 <hr>
-<h3 id="Analysis and discussion">Analysis and discussion</h3>
+
+<!-- ANALYSIS -->
+<h3 id="Analysis">Analysis and discussion</h3>
 <p class="ex1">
-<pre>
-Bridge deck repairs require careful consideration of multiple factors including structural integrity, 
-environmental conditions, and economic constraints. The analysis reveals that preventive maintenance 
-strategies significantly outperform reactive approaches in terms of cost-effectiveness and structural 
-longevity.
 
-Mathematical analysis using MathML can be incorporated for complex calculations:
-</pre>
+Security Operations Centres rely on the combined strength of people, processes, and 
+technology. Analysts are typically organised into tiered structures where Tier 1 personnel 
+triage alerts, Tier 2 analysts investigate incidents, and senior analysts perform threat 
+hunting and coordinate responses. Conn (2022):contentReference[oaicite:1]{index=1} compares SOC operations to 
+“war rooms” where fast decision-making and collaboration determine success during 
+critical incidents.
 
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<mrow>
-<msup><mi>x</mi><mn>2</mn></msup>
-<mo>+</mo><mi>4</mi><mo>&InvisibleTimes;</mo><mi>x</mi>
-<mo>+</mo><mi>4</mi>
-<mo>=</mo>
-<mi>0</mi>
-</mrow>
-</math>
+Modern SOCs are built around continuous data collection. Logs from firewalls, intrusion 
+detection systems, endpoints, and cloud environments feed into SIEM platforms for 
+correlation. However, Alahmadi, Axon and Martinovic (2022):contentReference[oaicite:2]{index=2} discovered that up 
+to 99% of SIEM alarms are false positives—an issue that contributes heavily to analyst 
+fatigue. This creates a need for improved filtering, triage strategies, and threat intelligence 
+integration.
 
-<pre>
-The following table presents comparative data on repair costs and expected lifespan:
-</pre>
+Machine learning methods offer potential improvements. Shaik et al. (2022):contentReference[oaicite:3]{index=3} 
+showed that datasets such as NSL-KDD can significantly enhance intrusion detection 
+accuracy. Yang et al. (2021):contentReference[oaicite:4]{index=4} developed ASSERT, a near real-time learning 
+model capable of identifying attack behaviours dynamically. Despite technological advances, 
+Forsberg et al. (2023):contentReference[oaicite:5]{index=5} note that MTTD and MTTR alone cannot measure 
+decision-making quality, emphasising the human role within SOC processes.
 
-<table>
-<tr>
-<th>£ Cost of repairs</th>
-<th>Lifespan of repairs (years)</th>
-</tr>
-<tr>
-<td>0.7 million</td>
-<td>2</td>
-</tr>
-<tr>
-<td>3.3 million</td>
-<td>4</td>
-</tr>
-<tr>
-<td>2.6 million</td>
-<td>5</td>
-</tr>
-<tr>
-<td>17.4 million</td>
-<td>7</td>
-</tr>
-<tr>
-<td>8.8 million</td>
-<td>9</td>
-</tr>
-</table>
+Bias is also a challenge. Analysts often rely more heavily on tools they trust, creating 
+“trust hierarchies” that may prevent the adoption of better methods (Alahmadi et al., 
+2022):contentReference[oaicite:6]{index=6}. Collaboration and training can reduce this effect. Majid et al. (2021):contentReference[oaicite:7]{index=7} 
+highlight that SOCs supported by strong governance and knowledge-sharing perform more 
+effectively in crisis situations.
+
+Threat hunting is another essential component. Analysts proactively search for unknown 
+threats, guided by behavioural patterns and previous incidents. Patterson et al. (2023):contentReference[oaicite:8]{index=8} 
+observe that insufficient documentation of lessons learned reduces long-term defensive 
+effectiveness.
+
+AI-driven automation is expanding within SOCs. SOAR systems streamline repetitive tasks 
+like isolating compromised hosts or blocking malicious IPs. Singh et al. (2025):contentReference[oaicite:9]{index=9} 
+found that large language models support analysts by summarising incidents and generating 
+reports, though human validation remains essential to prevent errors. Automation enhances 
+efficiency but cannot replace the contextual awareness, intuition, and judgement of skilled 
+analysts.
+
+</p>
+
+<!-- DIAGRAM 2: ALERT FLOW -->
+<div class="diagram">
+    <svg width="520" height="220">
+        <rect width="520" height="220" fill="#f9f9f9" stroke="#444"/>
+        <text x="180" y="25" font-size="18"><b>Alert Flow Diagram</b></text>
+
+        <rect x="40" y="60" width="120" height="50" fill="#d4f1ff" stroke="#333"/>
+        <text x="60" y="90">Security Tools</text>
+
+        <rect x="200" y="60" width="120" height="50" fill="#ffe6c7" stroke="#333"/>
+        <text x="230" y="90">SIEM</text>
+
+        <rect x="360" y="60" width="120" height="50" fill="#c7ffd9" stroke="#333"/>
+        <text x="380" y="90">Alerts</text>
+
+        <rect x="180" y="140" width="160" height="60" fill="#ffd4e1" stroke="#333"/>
+        <text x="200" y="175">Analyst Triage</text>
+
+        <line x1="160" y1="85" x2="200" y2="85" stroke="black"/>
+        <line x1="320" y1="85" x2="360" y2="85" stroke="black"/>
+        <line x1="360" y1="110" x2="260" y2="140" stroke="black"/>
+    </svg>
+</div>
+
+<p class="ex1">
+Overall, the literature demonstrates that SOC analysts remain the cognitive core of cyber 
+defence. Despite advances in automation, organisational security depends on human 
+expertise, experience, intuition, and communication. Analysts act as the bridge between 
+technology and strategic response—interpreting ambiguous data, coordinating with 
+stakeholders, and strengthening security posture through continuous improvement.
 </p>
 
 <hr>
+
+<!-- REFERENCES -->
 <h3 id="References">References</h3>
 <p class="ex1">
-<pre>
-Angluin, D. (1988). Queries and concept learning. Machine learning, 2(4), 319-342.
+Agyepong, E. et al. (2023). <i>A systematic method for measuring SOC analyst performance</i>. Computers & Security.  
+<br><a href="https://www.sciencedirect.com/">Publisher Link</a>
 
-Cohn, D., Atlas, L., & Ladner, R. (1994). Improving generalization with active learning. 
-Machine learning, 15(2), 201-221.
+<br><br>Alahmadi, B., Axon, L. & Martinovic, I. (2022). <i>99% False Positives: A Qualitative Study of SOC Analysts</i>. USENIX Security Symposium.  
+<a href="https://www.usenix.org/">Read Online</a>
 
-Lewis, D. D., & Gale, W. A. (1994). A sequential algorithm for training text classifiers. 
-In SIGIR'94 (pp. 3-12).
+<br><br>Aslan, Ö. et al. (2022). <i>A Comprehensive Review of Cyber Security Vulnerabilities and Attacks</i>.  
+<a href="https://arxiv.org/">arXiv Link</a>
 
-<a href="https://www.icevirtuallibrary.com/doi/full/10.1680/jbren.21.00034">Toshihiko et al (2023).</a>
+<br><br>Conn, J. (2022). <i>Launching a Cybersecurity War Room</i>.  
+<a href="https://www.modernhealthcare.com/">Publisher Link</a>
 
-Roy, N., & McCallum, A. (2001). Toward optimal active learning through monte carlo estimation 
-of error reduction. ICML, Williamstown (pp. 441-448).
+<br><br>Forsberg, J. et al. (2023). <i>Technical Performance Metrics of a SOC</i>. Computers & Security.  
+<a href="https://www.sciencedirect.com/">Publisher Link</a>
 
-Seung, H. S., Opper, M., & Sompolinsky, H. (1992). Query by committee. 
-In Proceedings of the fifth annual workshop on Computational learning theory (pp. 287-294).
+<br><br>Majid, M. A. et al. (2021). <i>Successful Development and Implementation of a SOC</i>. Journal of Information Security and Applications.  
+<a href="https://pubmed.ncbi.nlm.nih.gov/">NCBI Link</a>
 
-Tong, S., & Koller, D. (2001). Support vector machine active learning with applications to text classification. 
-Journal of machine learning research, 2(Nov), 45-66.
+<br><br>Patterson, C. et al. (2023). <i>Learning from Cyber Security Incidents</i>. Computers & Security.  
+<a href="https://www.sciencedirect.com/">Read Online</a>
 
-Vlachos, A. (2008). A stopping criterion for active learning. Computer Speech & Language, 22(3), 295-312.
-</pre>
+<br><br>Shaik, A. et al. (2022). <i>Effective Detection of Attacks Using NSL-KDD</i>. IEEE CyberneticsCom.  
+<a href="https://ieeexplore.ieee.org/">IEEE Link</a>
+
+<br><br>Singh, R. et al. (2025). <i>LLMs in Security Operations Centres</i>.  
+<a href="https://arxiv.org/">arXiv Link</a>
+
+<br><br>Yang, S. et al. (2021). <i>Near Real-Time Learning of Attack Models</i>.  
+<a href="https://arxiv.org/">arXiv Link</a>
 </p>
 
-<!-- //////////////////////////////////////////////////////////////////////////////// -->
-  <!-- ////////////////////////////// Adding last update ////////////////////////////// -->
-  <!-- //////////////////////////////////////////////////////////////////////////////// -->
-    <!-- Last commit time display -->
-<div id="last-updated">Loading last update time...</div>
-<!-- Verify Button -->
-<button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
-    Verify Last Modified Time
-</button>
-<script>
-    async function getLastUpdatedTime() {
-        const username = 'FEPSFY6870352';
-        const repo = 'FY6870352';
-       
-        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-        try {
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/vnd.github.v3+json',
-                }
-            });
-            if (!response.ok) {
-                throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
-            }
-            const commits = await response.json();
-            if (commits && commits.length > 0) {
-                const lastCommitDate = new Date(commits[0].commit.committer.date);
-               
-                // Displaying the time on load
-                document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
-            } else {
-                document.getElementById('last-updated').innerText = 'No commits found in the repository.';
-            }
-        } catch (error) {
-            console.error('Error fetching the last updated time:', error);
-            document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
-        }
-    }
-    // Function to verify the last update time by re-fetching it from the API
-    async function verifyLastUpdatedTime() {
-        document.getElementById('last-updated').innerText = 'Verifying...';
-        await getLastUpdatedTime();
-        alert("Last modified time has been successfully verified from GitHub API.");
-    }
-    // Initial load to display the time on page load
-    window.onload = getLastUpdatedTime;
-</script>
- <!-- //////////////////////////////////////////////////////////////////////////////// -->
-  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
-  <!-- //////////////////////////////////////////////////////////////////////////////// -->
-<!-- Placeholder for total word count -->
-<p id="totalWordCount"></p>
 <hr>
+
+<!-- LAST UPDATED SCRIPT + WORD COUNT (Fixed) -->
+<div id="last-updated">Loading last update time...</div>
+
 <script>
-  // Function to calculate and display word count for a specified section
-  function displayWordCount(sectionId, outputId) {
-    // Get the text content from the specified section
-    const text = document.getElementById(sectionId).textContent;
-    // Split text into words based on spaces and filter out any empty strings
-    const wordArray = text.trim().split(/\s+/);
-    // Count the words
-    const wordCount = wordArray.length;
-    // Return the word count for summing purposes
-    return wordCount;
-  }
-  // Function to calculate and display total word count from selected sections
-  function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
-    // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
-    // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-  }
-  // Run the function for specific sections and display total count when the page loads
-  window.onload = displayTotalWordCount;
+async function getLastUpdatedTime() {
+    const username = 'FEPSFY6870352';
+    const repo = 'FY6870352';
+    const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+
+    try {
+        const response = await fetch(url);
+        const commits = await response.json();
+        const lastCommitDate = new Date(commits[0].commit.committer.date);
+
+        document.getElementById('last-updated').innerText =
+            `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+    } catch (error) {
+        document.getElementById('last-updated').innerText =
+            'Error fetching update time.';
+    }
+}
+
+// Word count
+function displayWordCount() {
+    const intro = document.getElementById("Introduction").textContent.trim().split(/\s+/).length;
+    const analysis = document.getElementById("Analysis").textContent.trim().split(/\s+/).length;
+    document.getElementById("totalWordCount").innerText =
+        `Total word count (main article): ${intro + analysis}`;
+}
+
+window.onload = function () {
+    getLastUpdatedTime();
+    displayWordCount();
+};
 </script>
+
+<p id="totalWordCount"></p>
 
 </body>
 </html>
