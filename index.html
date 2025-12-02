@@ -6,9 +6,7 @@
 
 <style>
 
-/* -----------------------------------------------------------
-   GLOBAL PAGE APPEARANCE (Dark mode default)
------------------------------------------------------------ */
+/* ---------- GLOBAL THEME VARIABLES ---------- */
 :root {
     --bg-color: #0d0d0d;
     --text-color: #e6e6e6;
@@ -16,6 +14,7 @@
     --box-bg: #1a1a1a;
 }
 
+/* ---------- GLOBAL PAGE STYLE ---------- */
 body {
     background: linear-gradient(135deg, #0d0d0d, #1f1f1f);
     color: var(--text-color);
@@ -26,7 +25,7 @@ body {
     transition: 0.4s ease;
 }
 
-/* LIGHT MODE VALUES */
+/* LIGHT MODE */
 body.light {
     --bg-color: #ffffff;
     --text-color: #111111;
@@ -35,26 +34,23 @@ body.light {
     color: #111111;
 }
 
+/* ---------- HEADINGS ---------- */
 h1, h2, h3 {
     color: var(--accent);
 }
 
-/* Title glow */
 h1 {
-    animation: glow 2s ease-in-out infinite alternate;
-}
-@keyframes glow {
-    from { text-shadow: 0 0 8px var(--accent); }
-    to { text-shadow: 0 0 30px var(--accent); }
+    font-size: 34px;
+    animation: glow 1.8s ease-in-out infinite alternate;
 }
 
-/* -----------------------------------------------------------
-   TABLE OF CONTENTS
------------------------------------------------------------ */
-p.ex1 {
-    margin-left: 250px;
-    max-width: 850px;
+@keyframes glow {
+    from { text-shadow: 0 0 7px var(--accent); }
+    to   { text-shadow: 0 0 22px var(--accent); }
 }
+
+/* ---------- TABLE ---------- */
+p.ex1 { margin-left: 250px; max-width: 850px; }
 
 table {
     border-collapse: collapse;
@@ -77,9 +73,7 @@ a:hover {
     text-shadow: 0 0 10px var(--accent);
 }
 
-/* -----------------------------------------------------------
-   SIDEBAR NAVIGATION
------------------------------------------------------------ */
+/* ---------- SIDEBAR ---------- */
 #sidebar {
     height: 100%;
     width: 0;
@@ -101,22 +95,24 @@ a:hover {
     background: #00eaff;
     color: #000;
 }
+
+/* MENU BUTTON */
 #openBtn {
-    font-size: 30px;
-    cursor: pointer;
-    color: var(--accent);
     position: fixed;
     top: 20px;
     left: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--accent);
+    z-index: 3000;
 }
 
-/* -----------------------------------------------------------
-   TOGGLE SWITCH FOR DARK/LIGHT MODE
------------------------------------------------------------ */
+/* ---------- DARK / LIGHT MODE TOGGLE ---------- */
 .toggle-container {
     position: fixed;
     top: 20px;
-    right: 30px;
+    right: 40px;
+    z-index: 3000;
 }
 .toggle-container button {
     background: var(--box-bg);
@@ -131,6 +127,9 @@ a:hover {
     background: var(--accent);
     color: #000;
 }
+
+/* SMOOTH SCROLL */
+html { scroll-behavior: smooth; }
 
 </style>
 </head>
@@ -154,8 +153,11 @@ a:hover {
     <button onclick="toggleMode()">Toggle Light/Dark</button>
 </div>
 
-<!-- BANNER -->
-<img src="WebBanner2023.png" width="850" height="170" style="border-radius:8px; box-shadow:0 0 20px #00eaff;">
+<!-- CENTERED BANNER -->
+<div style="text-align:center; width:100%; margin-top:60px;">
+    <img src="WebBanner2023.png"
+         style="border-radius:8px; box-shadow:0 0 20px #00eaff; max-width:850px; width:90%; height:auto;">
+</div>
 
 <h1><b>ENG0081 Computer Laboratory 2025/26</b></h1>
 <h2 style="color:white;">Student URN: 6870352</h2>
@@ -285,7 +287,7 @@ Yang, S. et al. (2021). Near Real-Time Learning of Attack Models.
 
 <hr>
 
-<!-- LAST UPDATED & WORD COUNT -->
+<!-- LAST UPDATED + WORD COUNT -->
 <div id="last-updated">Loading last update time...</div>
 <p id="totalWordCount"></p>
 
@@ -294,10 +296,10 @@ Yang, S. et al. (2021). Near Real-Time Learning of Attack Models.
 function openSidebar() { document.getElementById("sidebar").style.width = "250px"; }
 function closeSidebar() { document.getElementById("sidebar").style.width = "0"; }
 
-/* Dark/Light mode */
+/* Dark/Light mode toggle */
 function toggleMode() { document.body.classList.toggle("light"); }
 
-/* GitHub API last update */
+/* GitHub update time */
 async function getLastUpdatedTime() {
     const response = await fetch("https://api.github.com/repos/FEPSFY6870352/FY6870352/commits");
     const commits = await response.json();
