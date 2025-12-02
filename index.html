@@ -5,38 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
+
+        /* ---------- GLOBAL STYLING ---------- */
+        body {
+            background: #0d0d0d url('https://i.imgur.com/0Zf0W8q.jpeg') no-repeat center fixed;
+            background-size: cover;
+            color: #e6e6e6;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+
+        h1, h2, h3 {
+            color: #00eaff;
+        }
+
+        /* ---------- ANIMATED TITLE ---------- */
+        h1 {
+            font-size: 34px;
+            animation: glow 1.8s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #00eaff; }
+            to { text-shadow: 0 0 25px #00eaff; }
+        }
+
+        /* ---------- TABLE ---------- */
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
-            width: 30%;
+            width: 35%;
+            background: #1a1a1a;
+            color: white;
         }
+
         td, th {
-            border: 1px solid #dddddd;
-            text-align: left;
+            border: 1px solid #333;
             padding: 8px;
         }
+
         tr:nth-child(even) {
-            background-color: #dddddd;
+            background-color: #111;
         }
+
+        /* ---------- HYPERLINK GLOW ---------- */
+        a {
+            color: #00eaff;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            color: white;
+            text-shadow: 0 0 10px #00eaff;
+        }
+
+        /* ---------- SECTION TEXT INDENT ---------- */
         p.ex1 {
             margin-left: 250px;
+            max-width: 850px;
         }
+
+        /* ---------- SMOOTH SCROLL ---------- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ---------- BANNER ---------- */
+        #banner {
+            border-radius: 8px;
+            box-shadow: 0 0 15px #00eaff;
+        }
+
+        /* ---------- INTERACTIVE CYBER GRID OVERLAY ---------- */
+        #grid {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: 
+                linear-gradient(rgba(0, 234, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 234, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
     </style>
 
 </head>
 
-<body style="background-color:#FFFFFF;margin-left:50px;">
+<body>
+
+<div id="grid"></div>
 
 <!-- Banner -->
-<img src="WebBanner2023.png" width="900" height="180" alt="Banner">
+<img id="banner" src="WebBanner2023.png" width="850" height="170" alt="Banner">
 
 <h1><b>ENG0081 Computer Laboratory 2025/26</b></h1>
-<h2>Student URN: 6870352</h2>
+<h2 style="color:white;">Student URN: 6870352</h2>
 <hr>
 
 <h2><b>The SOC Analyst’s Role in the Detection and Prevention of Cyber Attacks</b></h2>
 <hr>
 
+<!-- TABLE OF CONTENTS -->
 <p class="ex1">
 <table id="toc">
 <tr><th><h3>Table of contents</h3></th></tr>
@@ -54,12 +127,11 @@
 <p class="ex1">
 The rise of sophisticated cyber-attacks has increased reliance on Security Operations Centres (SOCs)
 as the frontline of organisational defence. This paper examines the role of SOC analysts in detecting 
-and preventing cyber threats by combining automated systems with human expertise. Drawing on 
-recent studies, it highlights challenges such as alert fatigue, false positives, increasing system 
-complexity, and the expanding responsibilities of human analysts. The research also evaluates how 
-emerging technologies, including machine learning and large language models, influence modern SOC 
-operations. The study concludes that effective cyber defence is achieved through balancing automation, 
-situational awareness, experience, and collaborative problem-solving among analysts.
+and preventing cyber threats through a combination of automated systems and human expertise. 
+Challenges such as alert fatigue, false positives, and expanding system complexity are explored, 
+alongside the influence of machine learning and large language models on SOC performance. 
+The findings highlight that effective cyber defence relies on balancing automation with the experience, 
+judgement, and situational awareness of analysts.
 </p>
 
 <hr>
@@ -67,16 +139,16 @@ situational awareness, experience, and collaborative problem-solving among analy
 <!-- INTRODUCTION -->
 <h3 id="Introduction">Introduction</h3>
 <p class="ex1">
-As organisations continue to expand their digital infrastructure, cybersecurity has emerged as one of 
-the defining challenges of the modern era. Security Operations Centres serve as mission control for 
-cyber defence, where analysts continuously monitor, detect, and respond to threats in real time. SOCs 
-provide critical defensive capabilities by correlating logs, identifying anomalies, and investigating alerts 
-generated from a variety of security tools. Analysts play a crucial role in interpreting incomplete 
-information, prioritising incidents, and ensuring operational resilience.
+As organisations expand their digital infrastructure, cybersecurity has become one of the defining 
+challenges of the modern era. Security Operations Centres act as the command hub for cyber defence, 
+where teams of analysts continuously monitor, detect, and respond to threats. SOC analysts interpret 
+alerts, correlate logs, evaluate anomalies, and make rapid decisions that directly impact organisational 
+security.
 <br><br>
-Automation and human judgement work closely together. While security tools generate alerts, analysts 
-must validate severity, assess risk, and decide on an appropriate response. SOC effectiveness depends 
-not only on technology but also on disciplined procedures, communication, and analytical ability.
+While automated systems generate alerts, human analysts assess severity, confirm malicious intent, 
+and determine the correct response. This combination of technological capability and human analysis 
+forms the backbone of modern cyber defence. Effective SOC operations rely on communication, 
+process discipline, and continual learning.
 </p>
 
 <hr>
@@ -84,41 +156,38 @@ not only on technology but also on disciplined procedures, communication, and an
 <!-- ANALYSIS -->
 <h3 id="Analysis">Analysis and discussion</h3>
 <p class="ex1">
-Security Operations Centres rely on the combined strength of people, processes, and technology. 
-Analysts are typically structured into tiered roles where Tier 1 personnel triage alerts, Tier 2 analysts 
-conduct deeper investigation, and senior analysts perform threat hunting and coordinate incident 
-response. This structure enables efficient allocation of workload during high-pressure events.
+SOCs depend on a layered structure of people, processes, and technology. Analysts are typically 
+organised into tiers: Tier 1 handles triage, Tier 2 investigates complex incidents, and Tier 3 conducts 
+threat hunting and long-term strategic analysis. This system ensures efficiency during high-volume 
+events.
 <br><br>
-Modern SOCs collect and correlate data from firewalls, intrusion detection systems, cloud logs, 
-endpoints, identity systems, and network activity. However, a major challenge is the high volume of 
-false positives produced by SIEM platforms. Research shows that excessive false alarms contribute 
-heavily to analyst fatigue and reduce long-term effectiveness. This creates a need for improved alert 
-filtering, triage methods, and integration of high-quality threat intelligence.
+SOCs collect data from multiple sources: firewalls, endpoint systems, cloud logs, intrusion detection 
+systems, and identity providers. However, the overwhelming number of false positives generated by 
+SIEM tools contributes to alert fatigue. This has pushed organisations to adopt smarter filtering 
+approaches and integrate threat intelligence feeds to improve triage accuracy.
 <br><br>
-Emerging technologies aim to reduce the workload on analysts. Machine learning techniques can group 
-similar alerts, prioritise high-risk patterns, and detect behavioural anomalies. Real-time learning models 
-have demonstrated success in identifying suspicious activity more accurately than traditional signature-
-based systems. However, research highlights that machine learning cannot entirely replace human 
-oversight. Analysts provide essential contextual understanding, risk assessment, and decision-making.
+Machine learning systems offer opportunities to reduce analyst workload. They can detect behavioural 
+anomalies, cluster similar alerts, and identify high-risk events. Despite technological progress, research 
+shows that algorithmic models cannot fully replace human expertise. Analysts provide contextual 
+knowledge, creative problem-solving, and risk-based decision-making.
 <br><br>
-Analyst bias is another emerging challenge. Individuals often rely heavily on tools they personally trust, 
-which can affect judgement during investigations. Collaboration, training, and shared documentation 
-are crucial to maintaining balanced decision-making. Strong governance frameworks and knowledge-
-sharing practices significantly improve SOC performance, especially during crisis situations.
+Analyst bias presents another operational challenge. Personal familiarity with certain tools may cause 
+over-reliance on them, affecting judgement. Collaborative environments supported by clear governance 
+and documentation help mitigate this issue. Additionally, strong knowledge-sharing practices build 
+team resilience.
 <br><br>
-Threat hunting has also become a core SOC responsibility. Instead of waiting for alerts, analysts 
-proactively search for suspicious patterns, leveraging threat intelligence, behavioural analysis, and past 
-incident data. This process improves detection of advanced persistent threats that do not trigger typical 
-alarms.
+Threat hunting is a proactive SOC activity where analysts actively search for hidden or emerging 
+threats. This includes analysing unusual user behaviour, scanning for lateral movement, and reviewing 
+historical logs for patterns that automated systems may overlook.
 <br><br>
-Automation is increasingly used to handle repetitive tasks such as isolating compromised hosts, 
-corralling suspicious traffic, or blocking malicious IP addresses. Large language models are being 
-introduced to summarise incidents and assist analysts with report generation. While these tools improve 
-efficiency, human validation remains essential to maintain accuracy.
+Automation—especially through SOAR tools—now supports SOCs by handling repetitive tasks such as 
+IP blocking, host isolation, and automated ticket creation. Large language models have also emerged as 
+support tools, helping analysts summarise incidents and produce reports. However, these systems still 
+require human oversight to maintain accuracy and prevent misinterpretation.
 <br><br>
-Overall, current research shows that SOC analysts remain the cognitive centre of cyber defence. 
-Despite growing automation, organisational security continues to depend on human expertise, 
-experience, intuition, and problem-solving ability.
+Overall, research concludes that SOC analysts remain the intellectual centre of cyber defence. Despite 
+increasing automation, the effectiveness of a SOC ultimately depends on human judgement, 
+experience, and coordination.
 </p>
 
 <hr>
@@ -126,34 +195,34 @@ experience, intuition, and problem-solving ability.
 <!-- REFERENCES -->
 <h3 id="References">References</h3>
 <p class="ex1">
-Agyepong, E. et al. (2023). A systematic method for measuring SOC analyst performance. 
-Computers & Security. <a href="https://www.sciencedirect.com/">https://www.sciencedirect.com/</a>
-<br><br>
-Alahmadi, B., Axon, L. & Martinovic, I. (2022). 99% False Positives: A Qualitative Study of SOC Analysts. 
-USENIX Security Symposium. <a href="https://www.usenix.org/">https://www.usenix.org/</a>
-<br><br>
-Aslan, Ö. et al. (2022). A Comprehensive Review of Cyber Security Vulnerabilities and Attacks. 
-arXiv. <a href="https://arxiv.org/">https://arxiv.org/</a>
-<br><br>
-Conn, J. (2022). Launching a Cybersecurity War Room. 
-<a href="https://www.modernhealthcare.com/">https://www.modernhealthcare.com/</a>
-<br><br>
-Forsberg, J. et al. (2023). Technical Performance Metrics of a SOC. Computers & Security. 
+Agyepong, E. et al. (2023). A systematic method for measuring SOC analyst performance. Computers & Security.  
 <a href="https://www.sciencedirect.com/">https://www.sciencedirect.com/</a>
 <br><br>
-Majid, M. A. et al. (2021). Successful Development and Implementation of a SOC. Journal of Information 
-Security and Applications. <a href="https://pubmed.ncbi.nlm.nih.gov/">https://pubmed.ncbi.nlm.nih.gov/</a>
+Alahmadi, B., Axon, L. & Martinovic, I. (2022). 99% False Positives: A Qualitative Study of SOC Analysts. USENIX Security Symposium.  
+<a href="https://www.usenix.org/">https://www.usenix.org/</a>
 <br><br>
-Patterson, C. et al. (2023). Learning from Cyber Security Incidents. Computers & Security. 
-<a href="https://www.sciencedirect.com/">https://www.sciencedirect.com/</a>
-<br><br>
-Shaik, A. et al. (2022). Effective Detection of Attacks Using NSL-KDD. IEEE. 
-<a href="https://ieeexplore.ieee.org/">https://ieeexplore.ieee.org/</a>
-<br><br>
-Singh, R. et al. (2025). LLMs in Security Operations Centres. 
+Aslan, Ö. et al. (2022). A Comprehensive Review of Cyber Security Vulnerabilities and Attacks. arXiv.  
 <a href="https://arxiv.org/">https://arxiv.org/</a>
 <br><br>
-Yang, S. et al. (2021). Near Real-Time Learning of Attack Models. 
+Conn, J. (2022). Launching a Cybersecurity War Room.  
+<a href="https://www.modernhealthcare.com/">https://www.modernhealthcare.com/</a>
+<br><br>
+Forsberg, J. et al. (2023). Technical Performance Metrics of a SOC. Computers & Security.  
+<a href="https://www.sciencedirect.com/">https://www.sciencedirect.com/</a>
+<br><br>
+Majid, M. A. et al. (2021). Successful Development and Implementation of a SOC. Journal of Information Security and Applications.  
+<a href="https://pubmed.ncbi.nlm.nih.gov/">https://pubmed.ncbi.nlm.nih.gov/</a>
+<br><br>
+Patterson, C. et al. (2023). Learning from Cyber Security Incidents. Computers & Security.  
+<a href="https://www.sciencedirect.com/">https://www.sciencedirect.com/</a>
+<br><br>
+Shaik, A. et al. (2022). Effective Detection of Attacks Using NSL-KDD. IEEE.  
+<a href="https://ieeexplore.ieee.org/">https://ieeexplore.ieee.org/</a>
+<br><br>
+Singh, R. et al. (2025). LLMs in Security Operations Centres.  
+<a href="https://arxiv.org/">https://arxiv.org/</a>
+<br><br>
+Yang, S. et al. (2021). Near Real-Time Learning of Attack Models.  
 <a href="https://arxiv.org/">https://arxiv.org/</a>
 </p>
 
@@ -176,7 +245,7 @@ async function getLastUpdatedTime() {
         "Last Modified Time: " + last.toLocaleString();
 }
 
-// Word count for the entire readable text
+// Word count of entire visible text
 function countAllWords() {
     const text = document.body.innerText;
     const words = text.trim().split(/\s+/).length;
