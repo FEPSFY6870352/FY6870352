@@ -272,102 +272,117 @@ html { scroll-behavior: smooth; }
             <hr>
             <h3 id="Analysis">Analysis and Discussion</h3>
             <p>
-            Effective SOC performance rests on the interaction of people, processes, and technology.
-            Analysts are commonly organised into tiers according to experience. Junior analysts handle
-            first-line triage and filter obvious false positives, while more experienced analysts investigate
-            complex incidents and senior staff lead threat hunting and response. Conn (2022) compares
-            the SOC to a cyber war room in which rapid decision-making and clear communication are
-            essential; the combined judgement of each analyst shapes the speed and quality of the
-            overall response.
-            </p>
-            <p>
-            Detection typically begins with the continuous collection of events from intrusion-detection
-            systems, firewalls, and endpoint security products. These data streams are ingested by a
-            Security Information and Event Management (SIEM) platform, which correlates logs and
-            raises alerts when suspicious patterns are observed. However, Alahmadi, Axon and
-            Martinovic (2022) report that up to 99% of alarms in some SOCs are false positives,
-            contributing to analyst fatigue and the danger that genuine attacks are overlooked.
-            </p>
-            <p>
-            To manage this, analysts validate alarms by checking internal logs, consulting external
-            threat-intelligence sources, and assessing whether activity fits normal behaviour. Shaik et al.
-            (2022) show that using labelled datasets such as NSL-KDD with data-driven algorithms can
-            improve intrusion-detection precision, while Yang et al. (2021) propose ASSERT, a model
-            that learns attack behaviour in near real time to help correlate complex alert streams.
-            Even so, human interpretation remains central: analysts must work with incomplete
-            information, apply contextual reasoning, and choose proportionate responses.
-            </p>
-            <p>
-            Traditional performance metrics such as Mean Time to Detect and Mean Time to Respond do
-            not fully capture analytical quality. Forsberg et al. (2023) argue that SOC effectiveness should
-            also consider investigation depth and decision-making. Agyepong et al. (2023) therefore
-            suggest measuring performance as a balance between speed, accuracy, and cognitive
-            workload, acknowledging that constant high alert volumes impose a significant burden on
-            staff.
-            </p>
-            <p>
-            Human and organisational factors further influence SOC outcomes. Alahmadi et al. (2022)
-            observe that analysts often develop “trust hierarchies” that favour familiar tools, which may
-            bias investigations if alternative sources are ignored. Majid et al. (2021) find that mature
-            SOCs are characterised by supportive leadership, clear governance, and strong knowledge
-            sharing. Beyond reacting to alerts, analysts also contribute to prevention by conducting
-            threat-hunting activities that search for previously unknown compromises. Insights from
-            incidents feed into improved controls, monitoring rules, and security architecture, although
-            Patterson et al. (2023) note that organisations frequently fail to capture lessons learned in a
-            systematic way.
-            </p>
-            <p>
-            Automation and artificial intelligence increasingly shape SOC workflows. Security
-            Orchestration, Automation, and Response (SOAR) platforms can automatically isolate
-            suspected endpoints or block malicious IP addresses, reducing repetitive manual effort. More
-            recently, Singh et al. (2025) show that large language models can support analysts by
-            summarising incident data and drafting reports, but their outputs still require expert
-            validation. Aslan et al. (2022) emphasise that, even with sophisticated automation, core
-            principles of availability, integrity, and confidentiality demand accountable human oversight.
-            </p>
-            <p>
-            Overall, the literature presents SOC analysts as the cognitive core of modern cyber defence.
-            Their analytical skills, adaptability, and situational awareness connect technical signals with
-            strategic response. Although they face challenges such as alert fatigue, complex
-            infrastructures, and evolving attack techniques, trained analysts working within
-            well-governed SOCs can significantly reduce organisational risk. Good cybersecurity therefore
-            depends on an effective partnership between human expertise and technical controls, rather
-            than on technology in isolation, and the SOC analyst’s role remains central to maintaining
-            resilience in the digital era.
-            </p>
+Effective SOC performance depends on the interaction of people, processes, and technology.
+Analysts typically work in tiers based on experience: junior analysts handle initial triage and remove
+obvious false positives, while senior analysts investigate complex incidents and lead threat-hunting
+activities. Conn (2022) describes the SOC as a cyber “war room”, where rapid collaboration and clear
+decision-making are essential for an effective response.
+</p>
+
+<p>
+Detection begins with collecting alerts from firewalls, intrusion-detection systems, and endpoint tools,
+all of which feed into a SIEM platform that correlates events. However, Alahmadi, Axon and Martinovic
+(2022) highlight that up to 99% of alerts can be false positives, creating analyst fatigue and increasing
+the risk that genuine threats are missed. To manage this, analysts validate alerts using log analysis,
+context checks, and external threat intelligence.
+</p>
+
+<p>
+Machine-learning approaches support this process. Shaik et al. (2022) show that datasets such as
+NSL-KDD can improve detection accuracy, while Yang et al. (2021) propose ASSERT, a near real-time
+learning model that helps identify attack behaviour more reliably. Despite these advances, human
+judgement remains central because analysts must interpret incomplete information and assess the
+potential impact of each alert.
+</p>
+
+<p>
+Traditional SOC performance metrics—such as Mean Time to Detect and Mean Time to Respond—
+only partially measure effectiveness. Forsberg et al. (2023) argue that investigation depth and
+decision-quality are equally important. Agyepong et al. (2023) further suggest that analyst performance
+should account for cognitive workload, as high alert volumes significantly affect accuracy and
+well-being.
+</p>
+
+<p>
+Human factors also influence SOC outcomes. Alahmadi et al. (2022) note that analysts often develop
+“trust hierarchies” that favour certain tools, potentially creating blind spots. Majid et al. (2021) observe
+that successful SOCs share strong governance structures, supportive leadership, and continuous
+knowledge exchange. Beyond responding to alerts, analysts contribute to prevention by conducting
+threat-hunting investigations and feeding lessons from incidents into improved monitoring rules and
+security controls. Patterson et al. (2023) warn that organisations often fail to document lessons
+learned, limiting long-term improvement.
+</p>
+
+<p>
+Automation is increasingly embedded into SOC workflows. SOAR platforms can block malicious IPs,
+isolate compromised endpoints, and perform routine enrichment automatically, reducing repetitive
+manual tasks. More recently, Singh et al. (2025) show that large language models can assist analysts
+by summarising incidents and highlighting relevant indicators, although expert oversight remains
+essential. Aslan et al. (2022) reinforce that despite advanced automation, accountability and human
+interpretation remain fundamental principles of cybersecurity.
+</p>
+
+<p>
+Overall, SOC analysts remain central to organisational defence. Their analytical skills and situational
+awareness connect technical signals with strategic action. While alert fatigue, complex hybrid
+environments, and evolving threats pose challenges, well-supported analysts operating within mature
+SOCs significantly reduce cyber-risk. Effective cybersecurity ultimately relies on a partnership between
+skilled human analysts and well-designed technical controls, rather than automation alone.
+</p>
+
 
             <hr>
             <h3 id="References">References</h3>
-            <p>
-            Agyepong, E. et al. (2023) 'A systematic method for measuring the performance of an analyst
-            in a SOC', <i>Computers &amp; Security</i>, Elsevier.
-            <br><br>
-            Alahmadi, B. A., Axon, L. and Martinovic, I. (2022) '99% False Positives: A Qualitative Study
-            of SOC Analysts' Perspectives on Security Alarms', <i>USENIX Security Symposium</i>.
-            <br><br>
-            Aslan, Ö. et al. (n.d.) 'A Comprehensive Review of Cyber Security Vulnerabilities, Threats,
-            Attacks, and Solutions'.
-            <br><br>
-            Conn, J. (2022) <i>Launching a Cybersecurity War Room</i>, Modern Healthcare.
-            <br><br>
-            Forsberg, J. et al. (2023) 'Technical performance metrics of a Security Operations Center',
-            <i>Computers &amp; Security</i>, Elsevier.
-            <br><br>
-            Majid, M. A. et al. (2021) 'A model for successful development and implementation of a
-            Security Operations Center', <i>Journal of Information Security and Applications</i>.
-            <br><br>
-            Patterson, C. M. et al. (2023) 'Learning from cyber security incidents: A systematic review',
-            <i>Computers &amp; Security</i>, Elsevier.
-            <br><br>
-            Shaik, A. B. et al. (2022) 'An Effective Method for Detecting Cyber Attacks on Computer
-            Networks from the NSL-KDD Data Set', <i>IEEE CyberneticsCom</i>.
-            <br><br>
-            Singh, R. et al. (2025) 'LLMs in the SOC: An Empirical Study of Human-AI Collaboration in
-            Security Operations Centres', arXiv preprint.
-            <br><br>
-            Yang, S. et al. (2021) 'Near Real-time Learning and Extraction of Attack Models from Intrusion
-            Alerts', arXiv preprint.
-            </p>
+           <hr>
+<h3 id="References">References</h3>
+<p>
+
+Agyepong, E. et al. (2023) ‘A systematic method for measuring SOC analyst performance’, 
+<i>Computers &amp; Security</i>.  
+<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2022_102959" target="_blank">Read Here</a>
+<br><br>
+
+Alahmadi, B. A., Axon, L. &amp; Martinovic, I. (2022) ‘99% False Positives: A Qualitative Study of SOC Analysts’, 
+<i>USENIX Security Symposium</i>.  
+<a href="https://www.usenix.org/conference/usenixsecurity22" target="_blank">Read Here</a>
+<br><br>
+
+Aslan, Ö. et al. (2022) ‘A Comprehensive Review of Cyber Security Vulnerabilities and Attacks’, 
+<i>Electronics</i>.  
+<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_3390_electronics12061333" target="_blank">Read Here</a>
+<br><br>
+
+Conn, J. (2022) ‘Launching a Cybersecurity War Room’, 
+<i>Modern Healthcare</i>.  
+<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_reports_1734376378" target="_blank">Read Here</a>
+<br><br>
+
+Forsberg, J. et al. (2023) ‘Technical Performance Metrics of a SOC’, 
+<i>Computers &amp; Security</i>.  
+<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2023_103529" target="_blank">Read Here</a>
+<br><br>
+
+Patterson, C. et al. (2023) ‘Learning from Cybersecurity Incidents’, 
+<i>PLOS ONE</i>.  
+<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_plos_journals_2599573689" target="_blank">Read Here</a>
+<br><br>
+
+Shaik, A. et al. (2022) ‘Detection of Attacks Using NSL-KDD’, 
+<i>DOAJ / IEEE</i>.  
+<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_doaj_primary_oai_doaj_org_article_080534adc6b8479eb0faa7e0fe025085" target="_blank">Read Here</a>
+<br><br>
+
+Majid, M. A. et al. (2021) ‘Development and Implementation of a SOC’, 
+<i>Journal of Information Security and Applications</i>.  
+<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_journals_3082705947" target="_blank">Read Here</a>
+<br><br>
+
+Yang, S. et al. (2021) ‘Near Real-Time Learning of Attack Behaviour’, 
+<i>Computers &amp; Security</i>.  
+<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_journals_2505563289" target="_blank">Read Here</a>
+
+</p>
+
 
             <!-- Bottom info -->
             <div id="bottom-info"
