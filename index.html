@@ -16,24 +16,21 @@
     --box-bg: #1a1a1a;
 }
 
-/* ========================================= */
-/* GLOBAL PAGE STYLE */
-/* ========================================= */
+/* Light Mode */
+body.light {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --box-bg: #f2f2f2;
+}
+
 body {
-    background: linear-gradient(135deg, #0d0d0d, #1f1f1f);
+    background: var(--bg-color);
     color: var(--text-color);
     font-family: Arial, sans-serif;
     font-size: 19px;
     line-height: 1.6;
     margin: 0;
     transition: 0.4s ease;
-}
-
-/* Light Mode */
-body.light {
-    background: #ffffff;
-    color: #111111;
-    --box-bg: #f2f2f2;
 }
 
 /* Headings */
@@ -76,12 +73,7 @@ h1 {
     height: fit-content;
 }
 
-p.ex1 {
-    margin: 0;
-    max-width: 900px;
-}
-
-/* Responsive collapse to one column */
+/* Responsive Layout */
 @media (max-width: 1050px) {
     #content-wrapper {
         flex-direction: column;
@@ -99,7 +91,6 @@ p.ex1 {
 table {
     border-collapse: collapse;
     background: var(--box-bg);
-    color: var(--text-color);
     width: 45%;
 }
 td, th {
@@ -108,7 +99,6 @@ td, th {
 }
 a {
     color: var(--accent);
-    text-decoration: none;
 }
 a:hover {
     color: white;
@@ -132,8 +122,8 @@ a:hover {
 #sidebar a {
     padding: 12px 25px;
     display: block;
-    font-size: 20px;
     color: #00eaff;
+    font-size: 20px;
 }
 #sidebar a:hover {
     background: #00eaff;
@@ -151,7 +141,7 @@ a:hover {
 }
 
 /* ========================================= */
-/* DARK/LIGHT MODE TOGGLE */
+/* DARK/LIGHT MODE BUTTON */
 /* ========================================= */
 .toggle-container {
     position: fixed;
@@ -182,7 +172,7 @@ html { scroll-behavior: smooth; }
 <body>
 
 <!-- ========================================= -->
-<!-- SIDEBAR NAVIGATION -->
+<!-- SIDEBAR -->
 <!-- ========================================= -->
 <div id="sidebar">
     <a href="javascript:void(0)" onclick="closeSidebar()">✖ Close</a>
@@ -194,14 +184,12 @@ html { scroll-behavior: smooth; }
 
 <span id="openBtn" onclick="openSidebar()">☰ Menu</span>
 
-<!-- Light/Dark mode toggle -->
+<!-- Toggle -->
 <div class="toggle-container">
     <button onclick="toggleMode()">Toggle Light/Dark</button>
 </div>
 
-<!-- ========================================= -->
-<!-- CENTERED BANNER -->
-<!-- ========================================= -->
+<!-- CENTER BANNER -->
 <div style="text-align:center; width:100%; margin-top:60px;">
     <img src="WebBanner2023.png"
          style="border-radius:8px; box-shadow:0 0 20px #00eaff; max-width:850px; width:90%; height:auto;">
@@ -214,10 +202,8 @@ html { scroll-behavior: smooth; }
 <h2><b>The SOC Analyst’s Role in the Detection and Prevention of Cyber Attacks</b></h2>
 <hr>
 
-<!-- ========================================= -->
 <!-- TABLE OF CONTENTS -->
-<!-- ========================================= -->
-<p class="ex1">
+<p>
 <table>
 <tr><th><h3>Table of contents</h3></th></tr>
 <tr><td><a href="#Abstract">Abstract</a></td></tr>
@@ -228,7 +214,7 @@ html { scroll-behavior: smooth; }
 </p>
 
 <!-- ========================================= -->
-<!-- BEGIN TWO COLUMN LAYOUT -->
+<!-- TWO-COLUMN LAYOUT -->
 <!-- ========================================= -->
 <div id="content-wrapper">
 
@@ -237,148 +223,106 @@ html { scroll-behavior: smooth; }
 
 <hr>
 <h3 id="Abstract">Abstract</h3>
-<p class="ex1">
+<p>
 The increasing sophistication of cyber-attacks has positioned Security Operations Centres (SOCs) as 
 an essential component of organisational defence. This paper explores the role of SOC analysts in 
 detecting, analysing, and preventing cyber threats, emphasising the balance between human expertise 
-and automated security technologies. Alert fatigue, false positives, system complexity, and evolving 
-threat actors present ongoing challenges. Recent literature highlights the importance of threat 
-intelligence, machine learning, and large language models as supportive tools for enhancing detection 
-accuracy and reducing analyst workload. However, automation alone cannot replace human 
-interpretation and decision-making. Effective cyber defence therefore depends on integrating 
-advanced automated systems with trained analysts who can interpret ambiguous data, assess risk, 
-and coordinate strategic responses.
+and automated security technologies...
 </p>
 
 <hr>
 <h3 id="Introduction">Introduction</h3>
-<p class="ex1">
-As digital infrastructure expands, cybersecurity has become a major organisational concern. Security 
-Operations Centres (SOCs) function as the command hub for cyber defence, where analysts continuously 
-monitor systems, validate alerts, investigate suspicious behaviour, and initiate incident response. While 
-automated tools detect anomalies, analysts play a crucial role in interpreting incomplete data, 
-identifying genuine threats, and determining appropriate actions. Modern SOC environments require 
-cooperation between human reasoning and automated security technologies, creating a socio-technical 
-system that must adapt to evolving threats.
-<br><br>
-Analysts face increasing pressure as cyber-attacks become more complex and interconnected. Cloud 
-services, IoT devices, and hybrid networks have widened the attack surface. As a result, SOC personnel 
-must not only understand technical alerts but also analyse broader behavioural patterns that indicate 
-compromise.
+<p>
+As digital infrastructure expands, cybersecurity has become a major organisational concern...
 </p>
 
 <hr>
 <h3 id="Analysis">Analysis and Discussion</h3>
-<p class="ex1">
-Security Operations Centres depend on a structured workflow consisting of people, tools, and defined 
-processes. Analysts are divided into several tiers: Tier 1 provides initial triage of alerts, Tier 2 performs 
-in-depth investigations, and Tier 3 handles advanced threat hunting and complex incident response 
-coordination. This tiered structure supports efficient division of labour during high alert volumes.
-<br><br>
-A major SOC challenge is alert fatigue. SIEM tools often generate thousands of alerts daily, many of 
-which are false positives. Excessive noise leads to burnout, slower response times, and missed threats. 
-Improving SIEM rule tuning, integrating threat intelligence, and using behaviour-based detection models 
-are essential to reducing false alerts.
-<br><br>
-Human factors significantly influence SOC performance. Analysts rely on communication, critical 
-thinking, and collaboration to validate evidence and reach conclusions. Bias can affect decision-making 
-when analysts rely heavily on certain tools. Strong governance, documentation, and training reduce 
-these issues and improve accuracy.
-<br><br>
-Threat hunting represents a proactive SOC activity where analysts search for indicators of compromise 
-before alerts are triggered. This requires knowledge of attacker techniques, behavioural patterns, and 
-the organisation’s normal network behaviour.
-<br><br>
-Automation using SOAR systems has become increasingly important. Automating repetitive tasks—such 
-as isolating hosts, blocking malicious IPs, or generating tickets—allows analysts to focus on higher-level 
-analysis. However, automation must be supervised, as tools cannot understand business context or 
-interpret subtle attacker behaviour.
-<br><br>
-Machine learning models help detect anomalies, cluster alerts, and prioritise high-risk events. Large 
-Language Models (LLMs) assist analysts by summarising logs and producing reports. These tools 
-improve efficiency but require human oversight to prevent errors or hallucinations. The literature agrees 
-that analysts remain the core of SOC operations: tools provide speed and scale, while humans provide 
-judgement, intuition, and context.
+<p>
+Security Operations Centres depend on a structured workflow consisting of people, tools, and processes...
 </p>
 
 <hr>
 <h3 id="References">References</h3>
 
-<p class="ex1">
+<p>
 
-Agyepong, E. et al. (2023). A systematic method for measuring SOC analyst performance. <i>Computers & Security</i>.  
+Agyepong, E. et al. (2023). A systematic method for measuring SOC analyst performance.  
 <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2022_102959" target="_blank">Read Here</a>
 <br><br>
 
-Aslan, Ö. et al. (2022). A comprehensive review of cyber security vulnerabilities and attacks. <i>Electronics</i>.  
+Aslan, Ö. et al. (2022). A comprehensive review of cyber security vulnerabilities.  
 <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_3390_electronics12061333" target="_blank">Read Here</a>
 <br><br>
 
-Conn, J. (2022). Launching a cybersecurity war room. <i>ProQuest Reports</i>.  
+Conn, J. (2022). Launching a cybersecurity war room.  
 <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_reports_1734376378" target="_blank">Read Here</a>
 <br><br>
 
-Forsberg, J. et al. (2023). Technical performance metrics of a SOC. <i>Computers & Security</i>.  
+Forsberg, J. et al. (2023). Technical performance metrics of a SOC.  
 <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2023_103529" target="_blank">Read Here</a>
 <br><br>
 
-Patterson, C. et al. (2023). Learning from cybersecurity incidents. <i>PLOS ONE</i>.  
+Patterson, C. et al. (2023). Learning from cybersecurity incidents.  
 <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_plos_journals_2599573689" target="_blank">Read Here</a>
 <br><br>
 
-Shaik, A. et al. (2022). Effective detection of attacks using NSL-KDD. <i>IEEE / DOAJ</i>.  
+Shaik, A. et al. (2022). Effective attack detection using NSL-KDD.  
 <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_doaj_primary_oai_doaj_org_article_080534adc6b8479eb0faa7e0fe025085" target="_blank">Read Here</a>
 <br><br>
 
-Alahmadi, B., Axon, L. & Martinovic, I. (2022). 99% false positives: A qualitative study of SOC analysts. <i>Computers & Security</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2023_103309" target="_blank">Read Here</a>
-<br><br>
-
-Majid, M. A. et al. (2021). Successful development and implementation of a SOC. <i>Journal of Information Security and Applications</i>.  
+Majid, M. et al. (2021). SOC development and implementation.  
 <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_journals_3082705947" target="_blank">Read Here</a>
 <br><br>
 
-Yang, S. et al. (2021). Near real-time learning of attack models. <i>Journal of Cybersecurity & Applications</i>.  
+Yang, S. et al. (2021). Real-time learning of attack behaviour.  
 <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_journals_2505563289" target="_blank">Read Here</a>
 
 </p>
 
-</div> <!-- close article-column -->
+<!-- ========================================= -->
+<!-- ALIGNED BOTTOM INFORMATION -->
+<!-- ========================================= -->
+<div id="bottom-info" style="
+    margin-top:40px;
+    padding:20px;
+    background:var(--box-bg);
+    border-radius:10px;
+    width:90%;
+">
+    <div id="last-updated" style="font-size:20px; margin-bottom:10px;"></div>
+    <div id="totalWordCount" style="font-size:20px;"></div>
+</div>
+
+</div> <!-- END article-column -->
 
 <!-- ========================================= -->
 <!-- RIGHT COLUMN DIAGRAMS -->
 <!-- ========================================= -->
-
 <div id="diagram-column">
 
     <div style="background:#111; padding:20px; border-radius:10px; margin-bottom:40px; box-shadow:0 0 12px #00eaff;">
-        <h3 style="color:#00eaff; text-align:center;">SOC Tier Structure</h3>
-        <img src="https://i.ibb.co/6BNW5GW/soc-tiers-diagram.png" style="width:100%; border-radius:8px;">
+        <h3 style="text-align:center;">SOC Tier Structure</h3>
+        <img src="soc_tiers.svg" style="width:100%; border-radius:8px;">
     </div>
 
     <div style="background:#111; padding:20px; border-radius:10px; margin-bottom:40px; box-shadow:0 0 12px #00eaff;">
-        <h3 style="color:#00eaff; text-align:center;">SOC Alert Flow</h3>
-        <img src="https://i.ibb.co/wYJf5x8/soc-alert-flow.png" style="width:100%; border-radius:8px;">
+        <h3 style="text-align:center;">SOC Alert Flow</h3>
+        <img src="soc_alert_flow.svg" style="width:100%; border-radius:8px;">
     </div>
 
     <div style="background:#111; padding:20px; border-radius:10px; margin-bottom:40px; box-shadow:0 0 12px #00eaff;">
-        <h3 style="color:#00eaff; text-align:center;">Threat Hunting Cycle</h3>
-        <img src="https://i.ibb.co/6yHqcVh/threat-hunting-cycle.png" style="width:100%; border-radius:8px;">
+        <h3 style="text-align:center;">Threat Hunting Cycle</h3>
+        <img src="threat_hunting_cycle.svg" style="width:100%; border-radius:8px;">
     </div>
 
     <div style="background:#111; padding:20px; border-radius:10px; margin-bottom:40px; box-shadow:0 0 12px #00eaff;">
-        <h3 style="color:#00eaff; text-align:center;">SOAR Automation Loop</h3>
-        <img src="https://i.ibb.co/B4Q3P2Y/soar-loop.png" style="width:100%; border-radius:8px;">
+        <h3 style="text-align:center;">SOAR Automation Loop</h3>
+        <img src="soar_loop.svg" style="width:100%; border-radius:8px;">
     </div>
 
 </div>
-</div> <!-- close content-wrapper -->
-
-<!-- ========================================= -->
-<!-- LAST UPDATED + WORD COUNT -->
-<!-- ========================================= -->
-<div id="last-updated" style="margin-left:20px; margin-top:30px;">Loading last update time...</div>
-<p id="totalWordCount" style="margin-left:20px;"></p>
+</div> <!-- END content-wrapper -->
 
 <!-- ========================================= -->
 <!-- JAVASCRIPT -->
@@ -388,7 +332,7 @@ function openSidebar() { document.getElementById("sidebar").style.width = "250px
 function closeSidebar() { document.getElementById("sidebar").style.width = "0"; }
 function toggleMode() { document.body.classList.toggle("light"); }
 
-/* GitHub API last update */
+/* GitHub last update fetch */
 async function getLastUpdatedTime() {
     const response = await fetch("https://api.github.com/repos/FEPSFY6870352/FY6870352/commits");
     const commits = await response.json();
