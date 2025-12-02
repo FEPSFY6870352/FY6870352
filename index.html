@@ -5,10 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-
-/* ========================================= */
-/* GLOBAL THEME */
-/* ========================================= */
 :root {
     --bg-color: #0d0d0d;
     --text-color: #e6e6e6;
@@ -32,28 +28,40 @@ body {
     transition: 0.4s ease;
 }
 
+/* Page content container (keeps everything aligned and centred) */
+.page-container {
+    max-width: 1650px;
+    margin: 0 auto;
+    padding: 0 40px 40px 40px;
+}
+
+/* Headings */
 h1, h2, h3 {
     color: var(--accent);
 }
 h1 {
     animation: glow 1.8s ease-in-out infinite alternate;
+    text-align: center;
 }
+h2 {
+    text-align: center;
+}
+.section-title {
+    text-align: left;
+}
+
 @keyframes glow {
     from { text-shadow: 0 0 7px var(--accent); }
     to   { text-shadow: 0 0 22px var(--accent); }
 }
 
-/* ========================================= */
-/* TWO COLUMN LAYOUT */
-/* ========================================= */
+/* Two-column layout */
 #content-wrapper {
     display: flex;
     justify-content: center;
     gap: 60px;
     width: 100%;
-    max-width: 1650px;
-    margin: auto;
-    padding-top: 40px;
+    margin-top: 30px;
 }
 
 #article-column {
@@ -78,13 +86,12 @@ h1 {
     }
 }
 
-/* ========================================= */
-/* TABLE OF CONTENTS */
-/* ========================================= */
+/* Table of contents */
 table {
     border-collapse: collapse;
     background: var(--box-bg);
     width: 45%;
+    margin: 0 auto 10px auto;
 }
 td, th {
     padding: 10px;
@@ -97,9 +104,7 @@ a:hover {
     text-shadow: 0 0 10px var(--accent);
 }
 
-/* ========================================= */
-/* SIDEBAR */
-/* ========================================= */
+/* Sidebar */
 #sidebar {
     height: 100%;
     width: 0;
@@ -131,7 +136,7 @@ a:hover {
     z-index: 4000;
 }
 
-/* LIGHT/DARK BUTTON */
+/* Light/Dark toggle */
 .toggle-container {
     position: fixed;
     top: 20px;
@@ -147,15 +152,14 @@ a:hover {
     cursor: pointer;
 }
 
-/* Misc */
+/* Smooth scrolling */
 html { scroll-behavior: smooth; }
-
 </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
+<!-- Sidebar -->
 <div id="sidebar">
     <a href="javascript:void(0)" onclick="closeSidebar()">✖ Close</a>
     <a href="#Abstract">Abstract</a>
@@ -166,234 +170,250 @@ html { scroll-behavior: smooth; }
 
 <span id="openBtn" onclick="openSidebar()">☰ Menu</span>
 
-<!-- LIGHT/DARK TOGGLE -->
+<!-- Light/Dark toggle -->
 <div class="toggle-container">
     <button onclick="toggleMode()">Toggle Light/Dark</button>
 </div>
 
-<!-- BANNER -->
-<div style="text-align:center; margin-top:60px;">
-    <img src="WebBanner2023.png"
-         style="border-radius:8px; box-shadow:0 0 20px #00eaff; max-width:850px; width:90%;">
-</div>
+<!-- All main content inside page-container -->
+<div class="page-container">
 
-<h1><b>ENG0081 Computer Laboratory 2025/26</b></h1>
-<h2>Student URN: 6870352</h2>
-<hr>
-
-<h2><b>The SOC Analyst’s Role in the Detection and Prevention of Cyber Attacks</b></h2>
-<hr>
-
-<!-- TABLE OF CONTENTS -->
-<table>
-<tr><th><h3>Table of contents</h3></th></tr>
-<tr><td><a href="#Abstract">Abstract</a></td></tr>
-<tr><td><a href="#Introduction">Introduction</a></td></tr>
-<tr><td><a href="#Analysis">Analysis and Discussion</a></td></tr>
-<tr><td><a href="#References">References</a></td></tr>
-</table>
-
-<div id="content-wrapper">
-
-<!-- ========================================= -->
-<!-- ARTICLE COLUMN -->
-<!-- ========================================= -->
-<div id="article-column">
-
-<hr>
-<h3 id="Abstract">Abstract</h3>
-<p>
-The increasing sophistication, frequency, and scale of cyber-attacks have positioned Security Operations
-Centres (SOCs) as a critical component of organisational cyber defence. This article examines the role of
-SOC analysts in the detection and prevention of cyber attacks, focusing on how their work combines
-automated monitoring tools with human judgement and decision-making. Drawing on recent research,
-the discussion highlights key challenges such as alert fatigue, high rates of false positives, complex hybrid
-infrastructures, and a shortage of experienced analysts. It then explores how analysts use Security
-Information and Event Management (SIEM) platforms, Security Orchestration, Automation and Response
-(SOAR) tools, and threat intelligence to triage, investigate, and remediate security incidents. The article
-argues that although automation and machine learning can significantly reduce workload and improve
-consistency, they cannot fully replace human understanding of context, risk, and business impact. The
-conclusion emphasises that effective cyber defence relies on a partnership between capable analysts,
-well-designed processes, and carefully tuned technical controls rather than on technology alone.
-</p>
-
-<hr>
-<h3 id="Introduction">Introduction</h3>
-<p>
-Over the past decade, organisations have become increasingly dependent on digital infrastructure. Cloud
-services, remote work, Internet of Things (IoT) devices, and software-as-a-service platforms have expanded
-the potential attack surface far beyond the traditional on-premises network. At the same time, cyber
-threats have grown more organised and more financially motivated. Ransomware, data-theft campaigns,
-and supply-chain compromises routinely make headlines, with impacts ranging from service disruption to
-long-term reputation damage.
-</p>
-<p>
-In this landscape, the Security Operations Centre provides centralised monitoring and response. A SOC is
-usually staffed by analysts working in shifts to provide near-continuous coverage of an organisation’s
-systems, networks, and applications. Their primary objective is to identify suspicious events as early as
-possible, determine whether they are malicious, and coordinate an appropriate response. Analysts rely on
-a range of tools, including SIEM platforms that aggregate logs from different sources, endpoint detection
-solutions, intrusion-detection systems, and threat-intelligence feeds. However, tools alone are not enough.
-They generate large volumes of alerts, many of which are repetitive or low-risk, and they struggle to
-understand business context.
-</p>
-<p>
-The literature consistently describes SOC work as a socio-technical activity in which people, processes,
-and technology interact. Tiered structures are commonly used. Tier&nbsp;1 analysts handle initial triage,
-acknowledge alerts, and carry out straightforward investigations. Tier&nbsp;2 analysts perform more detailed
-analysis, correlate multiple data sources, and decide whether to escalate incidents. Tier&nbsp;3 staff focus on
-advanced threat hunting, malware analysis, and cross-incident pattern recognition. This structure supports
-specialisation but can also introduce communication challenges if information does not flow smoothly
-between tiers.
-</p>
-<p>
-Understanding the day-to-day responsibilities of SOC analysts is therefore essential for improving cyber
-defence. By examining their role in detection, investigation, and prevention, this article links theoretical
-research on SOC performance with practical operational realities. It also reflects on the extent to which
-emerging technologies such as machine learning and large language models can genuinely support
-analysts rather than simply adding another layer of complexity.
-</p>
-
-<hr>
-<h3 id="Analysis">Analysis and Discussion</h3>
-<p>
-The first aspect of the SOC analyst’s role is <b>detection</b>. SIEM platforms collect logs from firewalls, endpoints,
-servers, cloud services, authentication systems, and business applications. Correlation rules and use cases
-generate alerts when specific conditions are met, such as multiple failed logins followed by a successful
-one from a new device, or large volumes of data leaving a sensitive server. However, these rules are only as
-effective as their configuration. If they are too strict, they generate excessive false positives; if they are too
-permissive, important signals may be missed. Analysts therefore spend considerable time tuning rules,
-reviewing which alerts are genuinely useful, and providing feedback to improve detection logic.
-</p>
-<p>
-A major challenge identified by several studies is <b>alert fatigue</b>. Modern SOCs can receive thousands of
-alerts per day. Many are noisy or repetitive, particularly when misconfigured systems or vulnerability scans
-are present on the network. Constant exposure to low-quality alerts can reduce concentration and lead to
-critical events being overlooked. To address this, analysts often categorise alerts into playbooks that define
-standard triage steps, enrichment queries, and recommended actions. SOAR platforms can automate parts
-of this workflow, for example by automatically checking an IP address against threat-intelligence feeds,
-gathering host information, or temporarily isolating a machine from the network. Automation reduces
-manual effort, but analysts still need to review actions, confirm findings, and adapt playbooks when attack
-techniques change.
-</p>
-<p>
-Once an alert is confirmed as potentially malicious, the focus shifts to <b>investigation</b>. Analysts pivot between
-data sources: endpoint telemetry, network captures, authentication logs, cloud audit trails, and application
-logs. The goal is to reconstruct the attacker’s path — often described using the MITRE ATT&amp;CK framework —
-and to understand how far the compromise has spread. Effective investigation depends on both technical
-skills (for example, interpreting PowerShell command-lines or Windows Event IDs) and softer skills such as
-hypothesis generation and critical thinking. Analysts must decide which leads are worth following and when
-there is enough evidence to declare an incident.
-</p>
-<p>
-Human factors strongly influence this stage. Research shows that analysts develop “trust hierarchies”
-towards their tools. They may rely heavily on certain dashboards or detection engines that have proved
-reliable in the past, while discounting others. This can be helpful for speed but also risks blind spots if a
-particular data source is not consulted. Organisations therefore benefit from regular training, knowledge
-sharing, and post-incident reviews where analysts discuss what went well and what could be improved.
-These activities not only refine technical detections but also strengthen shared mental models of how
-threats behave in their specific environment.
-</p>
-<p>
-The final component of the role is <b>prevention and continuous improvement</b>. SOC analysts do not only react
-to incidents; they also provide feedback that shapes wider security strategy. After a serious incident, they
-help identify root causes such as missing patches, weak access controls, or gaps in monitoring coverage.
-Lessons learned are fed into new use cases, firewall policies, identity-and-access-management changes,
-and user-awareness training. Proactive threat hunting campaigns, where analysts deliberately search for
-subtle indicators of compromise rather than waiting for alerts, can reveal dormant threats and mis-used
-accounts that automated systems have missed.
-</p>
-<p>
-Emerging technologies provide additional support but do not remove the need for human expertise. Machine
-learning models can cluster similar alerts, highlight unusual user behaviour, or predict which events are most
-likely to be high-risk. Large language models can summarise long log files, propose hypotheses, or help
-junior analysts interpret unfamiliar artefacts. However, these tools can also introduce errors or biased
-outputs. The analyst remains responsible for validating results, assessing business impact, and choosing
-proportionate responses. In practice, the most effective SOCs are those where technology handles routine
-enrichment and correlation while analysts focus on interpretation, decision-making, and communication
-with stakeholders.
-</p>
-<p>
-Overall, the literature and operational experience both suggest that SOC analysts act as the intellectual
-centre of cyber defence. Their work sits at the intersection of technical detection, organisational risk
-management, and incident response. As threats continue to evolve, investment in analyst training, clear
-procedures, and well-tuned tooling is at least as important as purchasing new security products. A SOC
-without skilled analysts quickly becomes an expensive logging platform rather than an active defence
-capability.
-</p>
-
-<hr>
-<h3 id="References">References</h3>
-<p>
-Agyepong, E. et al. (2023). A systematic method for measuring SOC analyst performance. <i>Computers &amp; Security</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2022_102959" target="_blank">Read Here</a>
-<br><br>
-
-Aslan, Ö. et al. (2022). A comprehensive review of cyber security vulnerabilities and attacks. <i>Electronics</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_3390_electronics12061333" target="_blank">Read Here</a>
-<br><br>
-
-Conn, J. (2022). Launching a cybersecurity war room. <i>ProQuest Reports</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_reports_1734376378" target="_blank">Read Here</a>
-<br><br>
-
-Forsberg, J. et al. (2023). Technical performance metrics of a SOC. <i>Computers &amp; Security</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2023_103529" target="_blank">Read Here</a>
-<br><br>
-
-Patterson, C. et al. (2023). Learning from cybersecurity incidents. <i>PLOS ONE</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_plos_journals_2599573689" target="_blank">Read Here</a>
-<br><br>
-
-Shaik, A. et al. (2022). Effective detection of attacks using NSL-KDD. <i>IEEE / DOAJ</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_doaj_primary_oai_doaj_org_article_080534adc6b8479eb0faa7e0fe025085" target="_blank">Read Here</a>
-<br><br>
-
-Majid, M. A. et al. (2021). Successful development and implementation of a SOC. <i>Journal of Information Security and Applications</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_journals_3082705947" target="_blank">Read Here</a>
-<br><br>
-
-Yang, S. et al. (2021). Near real-time learning of attack behaviour for SOC environments. <i>Computers &amp; Security</i>.  
-<a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_journals_2505563289" target="_blank">Read Here</a>
-</p>
-
-<!-- BOTTOM INFO -->
-<div id="bottom-info" style="margin-top:40px; padding:20px; background:var(--box-bg); border-radius:10px; width:90%;">
-    <div id="last-updated" style="font-size:20px; margin-bottom:10px;"></div>
-    <div id="totalWordCount" style="font-size:20px;"></div>
-</div>
-
-</div> <!-- END ARTICLE COLUMN -->
-
-<!-- ========================================= -->
-<!-- DIAGRAM COLUMN (IMAGES 1, 2, 3) -->
-<!-- ========================================= -->
-<div id="diagram-column">
-
-    <!-- 1: Modern SOC Tiers -->
-    <div style="background:#111; padding:20px; margin-bottom:40px; border-radius:10px; box-shadow:0 0 12px #00eaff;">
-        <h3 style="text-align:center;">Modern SOC Tiers</h3>
-        <img src="1.png" alt="Modern SOC tier structure" style="width:100%; border-radius:8px;">
+    <!-- Banner -->
+    <div style="text-align:center; margin-top:70px;">
+        <img src="WebBanner2023.png"
+             style="border-radius:8px; box-shadow:0 0 20px #00eaff; max-width:850px; width:90%;">
     </div>
 
-    <!-- 2: SOAR Workflow -->
-    <div style="background:#111; padding:20px; margin-bottom:40px; border-radius:10px; box-shadow:0 0 12px #00eaff;">
-        <h3 style="text-align:center;">SOAR Workflow</h3>
-        <img src="2.png" alt="SOAR workflow diagram" style="width:100%; border-radius:8px;">
-    </div>
+    <h1><b>ENG0081 Computer Laboratory 2025/26</b></h1>
+    <h2 style="color:white; margin-top:5px;">Student URN: 6870352</h2>
+    <hr>
 
-    <!-- 3: Threat Hunting Loop -->
-    <div style="background:#111; padding:20px; margin-bottom:40px; border-radius:10px; box-shadow:0 0 12px #00eaff;">
-        <h3 style="text-align:center;">Threat Hunting Loop</h3>
-        <img src="3.png" alt="Threat hunting loop diagram" style="width:100%; border-radius:8px;">
-    </div>
+    <h2 class="section-title" style="margin-top:25px;">
+        <b>The SOC Analyst’s Role in the Detection and Prevention of Cyber Attacks</b>
+    </h2>
+    <hr>
 
-</div>
-</div> <!-- END content-wrapper -->
+    <!-- Table of contents -->
+    <table>
+        <tr><th><h3 style="text-align:center;">Table of contents</h3></th></tr>
+        <tr><td><a href="#Abstract">Abstract</a></td></tr>
+        <tr><td><a href="#Introduction">Introduction</a></td></tr>
+        <tr><td><a href="#Analysis">Analysis and Discussion</a></td></tr>
+        <tr><td><a href="#References">References</a></td></tr>
+    </table>
 
-<!-- ========================================= -->
-<!-- SCRIPTS -->
-<!-- ========================================= -->
+    <!-- Two-column layout -->
+    <div id="content-wrapper">
+
+        <!-- ===================== ARTICLE COLUMN ===================== -->
+        <div id="article-column">
+
+            <hr>
+            <h3 id="Abstract">Abstract</h3>
+            <p>
+            The increasing sophistication, frequency, and scale of cyber-attacks have positioned Security
+            Operations Centres (SOCs) as a critical component of organisational cyber defence. This article
+            examines the role of SOC analysts in the detection and prevention of cyber attacks, focusing on
+            how their work combines automated monitoring tools with human judgement and decision-making.
+            Drawing on recent research, the discussion highlights key challenges such as alert fatigue, high
+            rates of false positives, complex hybrid infrastructures, and a shortage of experienced analysts.
+            It then explores how analysts use Security Information and Event Management (SIEM) platforms,
+            Security Orchestration, Automation and Response (SOAR) tools, and threat intelligence to triage,
+            investigate, and remediate security incidents. The article argues that although automation and
+            machine learning can significantly reduce workload and improve consistency, they cannot fully
+            replace human understanding of context, risk, and business impact. The conclusion emphasises
+            that effective cyber defence relies on a partnership between capable analysts, well-designed
+            processes, and carefully tuned technical controls rather than on technology alone.
+            </p>
+
+            <hr>
+            <h3 id="Introduction">Introduction</h3>
+            <p>
+            Over the past decade, organisations have become increasingly dependent on digital
+            infrastructure. Cloud services, remote work, Internet of Things (IoT) devices, and software-as-a-service
+            platforms have expanded the potential attack surface far beyond the traditional on-premises
+            network. At the same time, cyber threats have grown more organised and more financially
+            motivated. Ransomware, data-theft campaigns, and supply-chain compromises routinely make
+            headlines, with impacts ranging from service disruption to long-term reputation damage. For many
+            organisations the question is no longer <i>whether</i> they will be targeted but <i>when</i>.
+            </p>
+            <p>
+            In this landscape, the Security Operations Centre provides centralised monitoring and response.
+            A SOC is usually staffed by analysts working in shifts to provide near-continuous coverage of an
+            organisation’s systems, networks, and applications. Their primary objective is to identify suspicious
+            events as early as possible, determine whether they are malicious, and coordinate an appropriate
+            response. Analysts rely on a range of tools, including SIEM platforms that aggregate logs from
+            different sources, endpoint detection and response (EDR) solutions, intrusion-detection systems,
+            cloud security tools, and threat-intelligence feeds. However, tools alone are not enough: they
+            generate large volumes of alerts, many of which are repetitive or low-risk, and they struggle to
+            understand business context.
+            </p>
+            <p>
+            The literature consistently describes SOC work as a socio-technical activity in which people,
+            processes, and technology interact. Tiered structures are commonly used. Tier&nbsp;1 analysts handle
+            initial triage, acknowledge alerts, and carry out straightforward investigations. Tier&nbsp;2 analysts
+            perform more detailed analysis, correlate multiple data sources, and decide whether to escalate
+            incidents. Tier&nbsp;3 staff focus on advanced threat hunting, malware analysis, and cross-incident
+            pattern recognition. Some organisations add a Tier&nbsp;0 or “service desk” function that filters obvious
+            noise before it reaches the SOC. This structure supports specialisation but can also introduce
+            communication challenges if information does not flow smoothly between tiers.
+            </p>
+            <p>
+            At the same time, the working environment of SOC analysts is demanding. They often work in
+            fast-paced, shift-based roles, dealing with incomplete information and time pressure. Studies have
+            linked this to high stress levels and staff turnover. Rotating shifts can affect sleep and concentration,
+            while constant exposure to negative events such as breaches or near-misses can be mentally
+            draining. These human factors affect the quality of detection and decision-making as much as the
+            underlying technical tooling. Understanding the day-to-day responsibilities of SOC analysts is
+            therefore essential for improving cyber defence.
+            </p>
+            <p>
+            By examining their role in detection, investigation, and prevention, this article links theoretical
+            research on SOC performance with practical operational realities. It also reflects on the extent to
+            which emerging technologies such as machine learning and large language models can genuinely
+            support analysts rather than simply adding another layer of complexity.
+            </p>
+
+            <hr>
+            <h3 id="Analysis">Analysis and Discussion</h3>
+            <p>
+            The first aspect of the SOC analyst’s role is <b>detection</b>. SIEM platforms collect logs from firewalls,
+            endpoints, servers, cloud services, authentication systems, and business applications. Correlation
+            rules and use cases generate alerts when specific conditions are met, such as multiple failed logins
+            followed by a successful one from a new device, or large volumes of data leaving a sensitive server.
+            However, these rules are only as effective as their configuration. If they are too strict, they generate
+            excessive false positives; if they are too permissive, important signals may be missed. Analysts
+            therefore spend considerable time tuning rules, reviewing which alerts are genuinely useful, and
+            providing feedback to improve detection logic.
+            </p>
+            <p>
+            A major challenge identified by several studies is <b>alert fatigue</b>. Modern SOCs can receive thousands
+            of alerts per day. Many are noisy or repetitive, particularly when misconfigured systems or
+            vulnerability scans are present on the network. Constant exposure to low-quality alerts can reduce
+            concentration and lead to critical events being overlooked. To address this, analysts often
+            categorise alerts into playbooks that define standard triage steps, enrichment queries, and
+            recommended actions. SOAR platforms can automate parts of this workflow, for example by
+            automatically checking an IP address against threat-intelligence feeds, gathering host information, or
+            temporarily isolating a machine from the network. Automation reduces manual effort, but analysts
+            still need to review actions, confirm findings, and adapt playbooks when attack techniques change.
+            </p>
+            <p>
+            Once an alert is confirmed as potentially malicious, the focus shifts to <b>investigation</b>. Analysts pivot
+            between data sources: endpoint telemetry, network captures, authentication logs, cloud audit trails,
+            and application logs. The goal is to reconstruct the attacker’s path — often described using the
+            MITRE ATT&amp;CK framework — and to understand how far the compromise has spread. Effective
+            investigation depends on both technical skills (for example, interpreting PowerShell command lines
+            or Windows Event IDs) and softer skills such as hypothesis generation and critical thinking. Analysts
+            must decide which leads are worth following and when there is enough evidence to declare an
+            incident.
+            </p>
+            <p>
+            Human factors strongly influence this stage. Research shows that analysts develop “trust
+            hierarchies” towards their tools. They may rely heavily on certain dashboards or detection engines
+            that have proved reliable in the past, while discounting others. This can be helpful for speed but also
+            risks blind spots if a particular data source is not consulted. Organisations therefore benefit from
+            regular training, knowledge sharing, and post-incident reviews where analysts discuss what went
+            well and what could be improved. These activities not only refine technical detections but also
+            strengthen shared mental models of how threats behave in their specific environment.
+            </p>
+            <p>
+            The final component of the role is <b>prevention and continuous improvement</b>. SOC analysts do not
+            only react to incidents; they also provide feedback that shapes wider security strategy. After a
+            serious incident, they help identify root causes such as missing patches, weak access controls, or
+            gaps in monitoring coverage. Lessons learned are fed into new use cases, firewall policies,
+            identity-and-access-management changes, and user-awareness training. Proactive threat hunting
+            campaigns, where analysts deliberately search for subtle indicators of compromise rather than
+            waiting for alerts, can reveal dormant threats and misused accounts that automated systems have
+            missed.
+            </p>
+            <p>
+            Emerging technologies provide additional support but do not remove the need for human expertise.
+            Machine-learning models can cluster similar alerts, highlight unusual user behaviour, or predict which
+            events are most likely to be high-risk. Large language models can summarise long log files, propose
+            hypotheses, or help junior analysts interpret unfamiliar artefacts. However, these tools can also
+            introduce errors or biased outputs and may lack transparency. The analyst remains responsible for
+            validating results, assessing business impact, and choosing proportionate responses. In practice,
+            the most effective SOCs are those where technology handles routine enrichment and correlation
+            while analysts focus on interpretation, decision-making, and communication with stakeholders.
+            </p>
+            <p>
+            Overall, the literature and operational experience both suggest that SOC analysts act as the
+            intellectual centre of cyber defence. Their work sits at the intersection of technical detection,
+            organisational risk management, and incident response. As threats continue to evolve, investment in
+            analyst training, clear procedures, and well-tuned tooling is at least as important as purchasing new
+            security products. A SOC without skilled analysts quickly becomes an expensive logging platform
+            rather than an active defence capability.
+            </p>
+
+            <hr>
+            <h3 id="References">References</h3>
+            <p>
+            Agyepong, E. et al. (2023). A systematic method for measuring SOC analyst performance. <i>Computers &amp; Security</i>.  
+            <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2022_102959" target="_blank">Read Here</a>
+            <br><br>
+
+            Aslan, Ö. et al. (2022). A comprehensive review of cyber security vulnerabilities and attacks. <i>Electronics</i>.  
+            <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_3390_electronics12061333" target="_blank">Read Here</a>
+            <br><br>
+
+            Conn, J. (2022). Launching a cybersecurity war room. <i>ProQuest Reports</i>.  
+            <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_reports_1734376378" target="_blank">Read Here</a>
+            <br><br>
+
+            Forsberg, J. et al. (2023). Technical performance metrics of a SOC. <i>Computers &amp; Security</i>.  
+            <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_unpaywall_primary_10_1016_j_cose_2023_103529" target="_blank">Read Here</a>
+            <br><br>
+
+            Patterson, C. et al. (2023). Learning from cybersecurity incidents. <i>PLOS ONE</i>.  
+            <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_plos_journals_2599573689" target="_blank">Read Here</a>
+            <br><br>
+
+            Shaik, A. et al. (2022). Effective detection of attacks using NSL-KDD. <i>IEEE / DOAJ</i>.  
+            <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_doaj_primary_oai_doaj_org_article_080534adc6b8479eb0faa7e0fe025085" target="_blank">Read Here</a>
+            <br><br>
+
+            Majid, M. A. et al. (2021). Successful development and implementation of a SOC. <i>Journal of Information Security and Applications</i>.  
+            <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_journals_3082705947" target="_blank">Read Here</a>
+            <br><br>
+
+            Yang, S. et al. (2021). Near real-time learning of attack behaviour for SOC environments. <i>Computers &amp; Security</i>.  
+            <a href="https://surrey.primo.exlibrisgroup.com/permalink/44SUR_INST/1tc3s1n/cdi_proquest_journals_2505563289" target="_blank">Read Here</a>
+            </p>
+
+            <!-- Bottom info -->
+            <div id="bottom-info"
+                 style="margin-top:40px; padding:20px; background:var(--box-bg); border-radius:10px; width:90%;">
+                <div id="last-updated" style="font-size:20px; margin-bottom:10px;"></div>
+                <div id="totalWordCount" style="font-size:20px;"></div>
+            </div>
+
+        </div> <!-- end article-column -->
+
+        <!-- ===================== DIAGRAM COLUMN ===================== -->
+        <div id="diagram-column">
+
+            <div style="background:#111; padding:20px; margin-bottom:40px; border-radius:10px; box-shadow:0 0 12px #00eaff;">
+                <h3 style="text-align:center;">Modern SOC Tiers</h3>
+                <img src="1.png" alt="Modern SOC tier structure" style="width:100%; border-radius:8px;">
+            </div>
+
+            <div style="background:#111; padding:20px; margin-bottom:40px; border-radius:10px; box-shadow:0 0 12px #00eaff;">
+                <h3 style="text-align:center;">SOAR Workflow</h3>
+                <img src="2.png" alt="SOAR workflow diagram" style="width:100%; border-radius:8px;">
+            </div>
+
+            <div style="background:#111; padding:20px; margin-bottom:40px; border-radius:10px; box-shadow:0 0 12px #00eaff;">
+                <h3 style="text-align:center;">Threat Hunting Loop</h3>
+                <img src="3.png" alt="Threat hunting loop diagram" style="width:100%; border-radius:8px;">
+            </div>
+
+        </div> <!-- end diagram-column -->
+
+    </div> <!-- end content-wrapper -->
+
+</div> <!-- end page-container -->
+
+<!-- ===================== SCRIPTS ===================== -->
 <script>
 function openSidebar(){document.getElementById("sidebar").style.width="250px";}
 function closeSidebar(){document.getElementById("sidebar").style.width="0";}
@@ -408,7 +428,8 @@ async function getLastUpdatedTime(){
         document.getElementById("last-updated").innerText =
             "Last Modified Time: " + d.toLocaleString();
     } catch (e) {
-        document.getElementById("last-updated").innerText = "Last Modified Time: unavailable";
+        document.getElementById("last-updated").innerText =
+            "Last Modified Time: unavailable";
     }
 }
 
