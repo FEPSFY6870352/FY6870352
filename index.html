@@ -245,14 +245,15 @@ html { scroll-behavior: smooth; }
             <h3 id="Introduction">Introduction</h3>
             <div id="Introduction_InText">
             <p>
-            As organisations expand their digital infrastructure, cyber security has become a major
-            operational challenge. The SOC acts as the command centre for cyber defence, where analysts
-            continuously monitor networks, identify suspicious activity, and coordinate responses. They
-            interpret automated alerts, separate genuine threats from background noise, and protect
-            digital assets under significant time pressure. Their work blends automation with human
-            insight to deliver both reactive incident response and proactive defence. An effective SOC
-            therefore relies as much on organisational discipline and situational awareness as on tools
-            and platforms.
+            As organisations rapidly expands their digital infrastructure and adopt a cloud-driven ecosystem,
+            cyber security has become a major operational challenge. Modern threats range from automated ransomware
+            to really advanced and persistent threat groups. The SOC acts as the central command unit for cyber defence, 
+            where analysts continuously monitor networks, identify suspicious activity, and coordinate responses. 
+            They interpret automated alerts, separate genuine threats from background noise, and protect digital
+            assets under significant time pressure. they interpret automated alerts, seperate genuine threats from
+            false positives and protect digital assests under significant time pressure. Their work blends a mix of 
+            automation and human insifht to deliver both reactive incident responses and proactive defence. Thus an
+            effective SOC relies as much on organistional prowess as it does on tools and platfroms.
             </p>
             </div>
 
@@ -270,9 +271,10 @@ decision-making are essential for an effective response.
 <p>
 Detection begins with collecting alerts from firewalls, intrusion-detection systems, and endpoint tools,
 all of which feed into a SIEM platform that correlates events. However, Alahmadi, Axon and Martinovic
-(2022) highlight that up to 99% of alerts can be false positives, creating analyst fatigue and increasing
-the risk that genuine threats are missed. To manage this, analysts validate alerts using log analysis,
-context checks, and external threat intelligence.
+(2022) highlight that up to 99% of alerts can be false positives, creating severe analyst fatigue and increasing
+the risk that genuine threats are missed. This directly degrades response metrics like Mean Time To Respond (MTTR)
+as valuable minutes are lost filtering the false positives. To manage this, analysts validate alrets using a 
+process called Log Analysis, contect cheks and external threat intelligence.
 </p>
 
 <p>
@@ -298,16 +300,19 @@ that successful SOCs share strong governance structures, supportive leadership, 
 knowledge exchange. Beyond responding to alerts, analysts contribute to prevention by conducting
 threat-hunting investigations and feeding lessons from incidents into improved monitoring rules and
 security controls. Patterson et al. (2023) warn that organisations often fail to document lessons
-learned, limiting long-term improvement.
+learned, limiting long-term improvement because operational pressure forces teams to close tickets
+quickly rather then performing thorough post-incident reviews.
 </p>
 
 <p>
-Automation is increasingly embedded into SOC workflows. SOAR platforms can block malicious IPs,
-isolate compromised endpoints, and perform routine enrichment automatically, reducing repetitive
-manual tasks. More recently, Singh et al. (2025) show that large language models can assist analysts
-by summarising incidents and highlighting relevant indicators, although expert oversight remains
-essential. Aslan et al. (2022) reinforce that despite advanced automation, accountability and human
-interpretation remain fundamental principles of cybersecurity.
+Automation is increasingly embedded into SOC workflows. Security Orchestration, Automation, 
+and Response (SOAR) platforms can block malicious IPs, isolate compromised endpoints,
+and perform routine enrichment automatically, reducing repetitive manual tasks. However, automation
+is a double edged sword; poorly configured scripts can occasionally disrupt legitimate businesess
+traffic or misinterpret benign events as major attacks. More recently, Singh et al. (2025) 
+show that large language models can assist analysts by summarising incidents and highlighting relevant indicators, 
+although expert oversight remains essential. Aslan et al. (2022) reinforce that despite advanced automation,
+accountability and human interpretation remain fundamental principles of cybersecurity.
 </p>
 
 <p>
