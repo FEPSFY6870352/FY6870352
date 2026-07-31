@@ -443,8 +443,8 @@ Near Real-Time Learning and Extraction of Attack Models from Intrusion Alerts
 </button>
 <script>
     async function getLastUpdatedTime() {
-        const username = 'nr0025';
-        const repo = 'FY0025';
+        const username = 'FEPSFY6870352';
+        const repo = 'FY6870352';
        
         const url = `https://api.github.com/repos/${username}/${repo}/commits`;
         try {
@@ -511,11 +511,10 @@ Near Real-Time Learning and Extraction of Attack Models from Intrusion Alerts
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
   
-  window.onload = displayTotalWordCount;
-    <script>
-    if (typeof getLastUpdatedTime === 'function') {
+ window.onload = function() {
         getLastUpdatedTime();
-    }
+        displayTotalWordCount();
+    };
 </script>
 
 <h2>Presentation</h2>
