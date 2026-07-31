@@ -159,19 +159,6 @@ a:hover {
     z-index: 4000;
 }
 
-.toggle-container {
-    position: fixed;
-    top: 20px;
-    right: 40px;
-    z-index: 4000;
-}
-.toggle-container button {
-    background: var(--box-bg);
-    border: 2px solid var(--accent);
-    color: var(--text-color);
-    padding: 8px 18px;
-    border-radius: 8px;
-    cursor: pointer;
 }
 
 html { scroll-behavior: smooth; }
@@ -314,7 +301,16 @@ show that large language models can assist analysts by summarising incidents and
 although expert oversight remains essential. Aslan et al. (2022) reinforce that despite advanced automation,
 accountability and human interpretation remain fundamental principles of cybersecurity.
 </p>
-
+<p>
+Compounding these operational hurdles is the persistent disconnect between overarching threat intelligence feeds 
+and the tactical realities faced by daily SOC workflows. While threat intelligence reports frequently highlight
+global adversary trends and emerging campaigns, security teams often struggle to contextualize this broad data
+against their specific network topology and asset inventory. As a result, analysts are left manually correlating 
+generic indicators of compromise with thousands of internal log entries, draining valuable time that could be 
+dedicated to proactive threat hunting. Bridging this gap demands integrated threat intelligence platforms capable 
+of automatically tailoring external feeds to an organization's unique threat profile, transforming raw data into 
+actionable, context-aware defense strategies.
+</p>
 <p>
 Overall, SOC analysts remain central to organisational defence. Their analytical skills and situational
 awareness connect technical signals with strategic action. While alert fatigue, complex hybrid
