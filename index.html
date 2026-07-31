@@ -243,6 +243,7 @@ html { scroll-behavior: smooth; }
 
             <hr>
             <h3 id="Introduction">Introduction</h3>
+            <div id="Introduction_InText">
             <p>
             As organisations expand their digital infrastructure, cyber security has become a major
             operational challenge. The SOC acts as the command centre for cyber defence, where analysts
@@ -253,9 +254,11 @@ html { scroll-behavior: smooth; }
             therefore relies as much on organisational discipline and situational awareness as on tools
             and platforms.
             </p>
+            </div>
 
             <hr>
             <h3 id="Analysis">Analysis and Discussion</h3>
+            <div id="Analysis_InText">
             <p>
 Effective SOC performance depends on the interaction of people, processes, and technology.
 Analysts typically work in tiers based on experience: junior analysts handle initial triage and remove
@@ -314,6 +317,7 @@ environments, and evolving threats pose challenges, well-supported analysts oper
 SOCs significantly reduce cyber-risk. Effective cybersecurity ultimately relies on a partnership between
 skilled human analysts and well-designed technical controls, rather than automation alone.
 </p>
+            </div>
 
 
             <hr>
@@ -506,9 +510,13 @@ Near Real-Time Learning and Extraction of Attack Models from Intrusion Alerts
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
-  // Run the function for specific sections and display total count when the page loads
+  
   window.onload = displayTotalWordCount;
-
+    <script>
+    if (typeof getLastUpdatedTime === 'function') {
+        getLastUpdatedTime();
+    }
+</script>
 
 <h2>Presentation</h2>
 <video width="900" controls>
